@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+/* Define theme CSS variables - dark theme by default */
+:root {
+	--theme-background: #0a0a0f;
+	--theme-foreground: #f0f0f5;
+	--theme-card: #16161f;
+	--theme-card-foreground: #f0f0f5;
+	--theme-popover: #16161f;
+	--theme-popover-foreground: #f0f0f5;
+	--theme-primary: #38bdf8;
+	--theme-primary-foreground: #0a0a0f;
+	--theme-secondary: #12121a;
+	--theme-secondary-foreground: #f0f0f5;
+	--theme-muted: #12121a;
+	--theme-muted-foreground: #a0a0b0;
+	--theme-accent: #818cf8;
+	--theme-accent-foreground: #f0f0f5;
+	--theme-destructive: #ef4444;
+	--theme-destructive-foreground: #f0f0f5;
+	--theme-border: #1e1e2a;
+	--theme-input: #1e1e2a;
+	--theme-ring: #38bdf8;
+	--orb-opacity: 0.5;
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+	--theme-background: #ffffff;
+	--theme-foreground: #0f172a;
+	--theme-card: #f8fafc;
+	--theme-card-foreground: #0f172a;
+	--theme-popover: #ffffff;
+	--theme-popover-foreground: #0f172a;
+	--theme-primary: #0284c7;
+	--theme-primary-foreground: #ffffff;
+	--theme-secondary: #e2e8f0;
+	--theme-secondary-foreground: #1e293b;
+	--theme-muted: #f1f5f9;
+	--theme-muted-foreground: #475569;
+	--theme-accent: #4f46e5;
+	--theme-accent-foreground: #ffffff;
+	--theme-destructive: #dc2626;
+	--theme-destructive-foreground: #ffffff;
+	--theme-border: #cbd5e1;
+	--theme-input: #cbd5e1;
+	--theme-ring: #0284c7;
+	--orb-opacity: 0.25;
+}
+
+/* Tailwind theme - reference the CSS variables */
+@theme inline {
+	--color-background: var(--theme-background);
+	--color-foreground: var(--theme-foreground);
+	--color-card: var(--theme-card);
+	--color-card-foreground: var(--theme-card-foreground);
+	--color-popover: var(--theme-popover);
+	--color-popover-foreground: var(--theme-popover-foreground);
+	--color-primary: var(--theme-primary);
+	--color-primary-foreground: var(--theme-primary-foreground);
+	--color-secondary: var(--theme-secondary);
+	--color-secondary-foreground: var(--theme-secondary-foreground);
+	--color-muted: var(--theme-muted);
+	--color-muted-foreground: var(--theme-muted-foreground);
+	--color-accent: var(--theme-accent);
+	--color-accent-foreground: var(--theme-accent-foreground);
+	--color-destructive: var(--theme-destructive);
+	--color-destructive-foreground: var(--theme-destructive-foreground);
+	--color-border: var(--theme-border);
+	--color-input: var(--theme-input);
+	--color-ring: var(--theme-ring);
+	--radius: 0.75rem;
+	--font-sans: 'Vazirmatn', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+	border-color: var(--theme-border);
+}
+
+body {
+	background-color: var(--theme-background);
+	color: var(--theme-foreground);
+	font-family: var(--font-sans);
+}
+
+/* RTL Support */
+[dir="rtl"] {
+	text-align: right;
+}
+
+::selection {
+	background: var(--theme-primary);
+	color: var(--theme-background);
+}
+
+/* View Transitions for theme toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+::view-transition-image-pair(root) {
+	isolation: auto;
+}
