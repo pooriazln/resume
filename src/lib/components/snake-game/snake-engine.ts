@@ -1,4 +1,11 @@
 export type Direction = 'up' | 'down' | 'left' | 'right';
+export type Difficulty = 'easy' | 'normal' | 'hard';
+
+const DIFFICULTY_PARAMS: Record<Difficulty, { start: number; accel: number; floor: number }> = {
+	easy: { start: 300, accel: 5, floor: 120 },
+	normal: { start: 250, accel: 8, floor: 80 },
+	hard: { start: 180, accel: 10, floor: 50 },
+};
 
 export interface Point {
 	x: number;
@@ -129,9 +136,9 @@ export function tick(state: SnakeState): void {
 }
 
 /** Tick interval in ms — starts slow, speeds up with score */
-export function getTickMs(score: number): number {
-	// 250ms at score 0, decreasing to a floor of 80ms
-	return Math.max(80, 250 - score * 8);
+export function getTickMs(score: number, difficulty: Difficulty = 'normal'): number {
+	const { start, accel, floor } = DIFFICULTY_PARAMS[difficulty];
+	return Math.max(floor, start - score * accel);
 }
 
 /**

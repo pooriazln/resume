@@ -41,45 +41,52 @@
 		<div class="hero-glow hero-glow-2"></div>
 	</div>
 
-	<div class="hero-content">
-		<div class="hero-intro animate-fade-up">
-			<span class="hero-greeting">{$t.greeting}</span>
-			<h1 class="hero-name">{$t.name}</h1>
+	<div class="hero-columns">
+		<div class="hero-text">
+			<div class="hero-intro animate-fade-up">
+				{#if $t.greeting}
+					<span class="hero-greeting">{$t.greeting}</span>
+				{/if}
+				<h1 class="hero-name">{$t.name}</h1>
+			</div>
+			<div class="hero-title-wrapper animate-fade-up-delay-2">
+				<span class="hero-title-item">{$t.titleParts[0]}</span>
+				<span class="hero-title-divider"></span>
+				<span class="hero-title-item">{$t.titleParts[1]}</span>
+				<span class="hero-title-divider"></span>
+				<span class="hero-title-item">{$t.titleParts[2]}</span>
+			</div>
+			<div class="hero-links animate-fade-up-delay-3">
+				<a href="mailto:pooria.zln83@gmail.com" class="hero-link">
+					<span class="hero-link-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+							<rect x="2" y="4" width="20" height="16" rx="2"></rect>
+							<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+						</svg>
+					</span>
+					<span>pooria.zln83@gmail.com</span>
+				</a>
+				<a href="https://github.com/pooriazln" target="_blank" rel="noopener" class="hero-link">
+					<span class="hero-link-icon">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+						</svg>
+					</span>
+					<span>github.com/pooriazln</span>
+				</a>
+				<span class="hero-link hero-location">
+					<span class="hero-link-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+							<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+							<circle cx="12" cy="10" r="3"></circle>
+						</svg>
+					</span>
+					<span>{$t.location}</span>
+				</span>
+			</div>
 		</div>
-		<div class="hero-title-wrapper animate-fade-up-delay-2">
-			<span class="hero-title-item">{$t.titleParts[0]}</span>
-			<span class="hero-title-divider"></span>
-			<span class="hero-title-item">{$t.titleParts[1]}</span>
-			<span class="hero-title-divider"></span>
-			<span class="hero-title-item">{$t.titleParts[2]}</span>
-		</div>
-		<div class="hero-links animate-fade-up-delay-3">
-			<a href="mailto:pooria.zln83@gmail.com" class="hero-link">
-				<span class="hero-link-icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<rect x="2" y="4" width="20" height="16" rx="2"></rect>
-						<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-					</svg>
-				</span>
-				<span>pooria.zln83@gmail.com</span>
-			</a>
-			<a href="https://github.com/pooriazln" target="_blank" rel="noopener" class="hero-link">
-				<span class="hero-link-icon">
-					<svg viewBox="0 0 24 24" fill="currentColor">
-						<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-					</svg>
-				</span>
-				<span>github.com/pooriazln</span>
-			</a>
-			<span class="hero-link hero-location">
-				<span class="hero-link-icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-						<circle cx="12" cy="10" r="3"></circle>
-					</svg>
-				</span>
-				<span>{$t.location}</span>
-			</span>
+		<div class="hero-game animate-fade-up-delay-3">
+			<SnakeGame />
 		</div>
 	</div>
 
@@ -157,6 +164,42 @@
 			<p class="about-text">
 				{$t.aboutText}
 			</p>
+		</div>
+	</section>
+
+	<!-- Skills -->
+	<section class="mb-12">
+		<h2 class="section-title">{$t.sections.skills}</h2>
+		<div class="skills-grid">
+			{#each Object.entries($t.skills) as [category, items], catIdx}
+				<div class="skill-group" style="--cat-delay: {catIdx * 0.08}s">
+					<div class="skill-group-header">
+						<span class="skill-group-icon">
+							{#if catIdx === 0}
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+							{:else if catIdx === 1}
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><circle cx="6" cy="6" r="1"></circle><circle cx="6" cy="18" r="1"></circle></svg>
+							{:else if catIdx === 2}
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+							{:else if catIdx === 3}
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"></path></svg>
+							{:else if catIdx === 4}
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+							{:else}
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+							{/if}
+						</span>
+						<span class="skill-group-name">{category}</span>
+					</div>
+					<div class="skill-tags">
+						{#each items as skill, skillIdx}
+							<span class="skill-tag" style="--skill-delay: {catIdx * 0.08 + skillIdx * 0.04}s">
+								{skill}
+							</span>
+						{/each}
+					</div>
+				</div>
+			{/each}
 		</div>
 	</section>
 
@@ -245,43 +288,6 @@
 		</div>
 	</section>
 
-	<!-- Skills -->
-	<section class="mb-12">
-		<h2 class="section-title">{$t.sections.skills}</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			{#each Object.entries($t.skills) as [category, items]}
-				<Card>
-					<CardHeader class="pb-3">
-						<CardTitle class="text-sm font-semibold text-primary uppercase tracking-wider">{category}</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<div class="flex flex-wrap gap-2">
-							{#each items as skill}
-								<Badge variant="secondary" class="hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
-									{skill}
-								</Badge>
-							{/each}
-						</div>
-					</CardContent>
-				</Card>
-			{/each}
-		</div>
-	</section>
-
-	<!-- Snake Game -->
-	<section class="mb-12">
-		<details class="game-details">
-			<summary class="game-summary">
-				<span class="game-summary-icon">🎮</span>
-				<span class="text-sm font-medium">{$t.snakeGame.sectionTitle}</span>
-				<span class="game-chevron"></span>
-			</summary>
-			<div class="game-content">
-				<SnakeGame />
-			</div>
-		</details>
-	</section>
-
 	<!-- Footer -->
 	<Separator class="mb-8" />
 	<footer class="text-center text-muted-foreground text-sm pb-8">
@@ -363,11 +369,25 @@
 		}
 	}
 
-	.hero-content {
+	.hero-columns {
 		position: relative;
 		z-index: 1;
-		text-align: center;
-		max-width: 800px;
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+		max-width: 1100px;
+		width: 100%;
+	}
+
+	.hero-text {
+		flex: 1;
+		text-align: start;
+	}
+
+	.hero-game {
+		width: 400px;
+		height: 300px;
+		flex-shrink: 0;
 	}
 
 	.hero-intro {
@@ -414,7 +434,7 @@
 	.hero-title-wrapper {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: start;
 		flex-wrap: wrap;
 		gap: 0.75rem;
 		margin-bottom: 2.5rem;
@@ -442,7 +462,7 @@
 	.hero-links {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: start;
 		gap: 1rem;
 	}
 
@@ -630,72 +650,6 @@
 		pointer-events: none;
 	}
 
-	/* Collapsible Game Section */
-	.game-details {
-		border: 1px solid var(--theme-border);
-		border-radius: 0.75rem;
-		background: color-mix(in srgb, var(--theme-card) 40%, transparent);
-		transition: border-color 0.2s ease;
-	}
-
-	.game-details[open] {
-		border-color: var(--theme-primary);
-	}
-
-	.game-summary {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1rem;
-		cursor: pointer;
-		color: var(--theme-muted-foreground);
-		list-style: none;
-		user-select: none;
-		transition: color 0.2s ease;
-	}
-
-	.game-summary::-webkit-details-marker {
-		display: none;
-	}
-
-	.game-summary:hover {
-		color: var(--theme-foreground);
-	}
-
-	.game-summary-icon {
-		font-size: 0.9rem;
-	}
-
-	.game-chevron {
-		margin-inline-start: auto;
-		width: 16px;
-		height: 16px;
-		position: relative;
-	}
-
-	.game-chevron::before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 6px;
-		height: 6px;
-		border-right: 1.5px solid currentColor;
-		border-bottom: 1.5px solid currentColor;
-		transform: translate(-50%, -60%) rotate(45deg);
-		transition: transform 0.2s ease;
-	}
-
-	.game-details[open] .game-chevron::before {
-		transform: translate(-50%, -40%) rotate(-135deg);
-	}
-
-	.game-content {
-		display: flex;
-		justify-content: center;
-		padding: 0 1rem 1rem;
-	}
-
 	@keyframes fadeIn {
 		to {
 			opacity: 1;
@@ -761,8 +715,38 @@
 
 	@media (max-width: 768px) {
 		.hero {
-			min-height: 75vh;
+			min-height: auto;
 			padding: 5rem 1rem 3rem;
+		}
+
+		.hero-columns {
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.hero-text {
+			text-align: center;
+		}
+
+		.hero-title-wrapper {
+			justify-content: center;
+			gap: 0.5rem;
+		}
+
+		.hero-links {
+			justify-content: center;
+			flex-direction: column;
+			gap: 0.625rem;
+		}
+
+		.hero-link {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.hero-game {
+			width: 100%;
+			height: 220px;
 		}
 
 		.hero-glow-1 {
@@ -783,10 +767,6 @@
 			font-size: 1.125rem;
 		}
 
-		.hero-title-wrapper {
-			gap: 0.5rem;
-		}
-
 		.hero-title-item {
 			font-size: 0.9375rem;
 		}
@@ -794,16 +774,6 @@
 		.hero-title-divider {
 			width: 4px;
 			height: 4px;
-		}
-
-		.hero-links {
-			flex-direction: column;
-			gap: 0.625rem;
-		}
-
-		.hero-link {
-			width: 100%;
-			justify-content: center;
 		}
 
 		.scroll-indicator {
@@ -853,6 +823,124 @@
 		.about-text {
 			font-size: 0.9375rem;
 			line-height: 1.7;
+		}
+	}
+
+	/* Skills Section */
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+	}
+
+	.skill-group {
+		padding: 1.25rem;
+		background: color-mix(in srgb, var(--theme-card) 60%, transparent);
+		border: 1px solid var(--theme-border);
+		border-radius: 0.75rem;
+		opacity: 0;
+		transform: translateY(12px);
+		animation: skillGroupIn 0.5s ease forwards;
+		animation-delay: var(--cat-delay);
+		transition: border-color 0.25s ease;
+	}
+
+	.skill-group:hover {
+		border-color: color-mix(in srgb, var(--theme-primary) 40%, var(--theme-border));
+	}
+
+	/* Last group (if odd count) spans full width */
+	.skill-group:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+
+	@keyframes skillGroupIn {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.skill-group-header {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+		margin-bottom: 0.875rem;
+	}
+
+	.skill-group-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: var(--theme-primary);
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.skill-group-icon svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.skill-group-name {
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: var(--theme-foreground);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+
+	.skill-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.skill-tag {
+		padding: 0.375rem 0.75rem;
+		font-size: 0.8125rem;
+		color: var(--theme-muted-foreground);
+		background: color-mix(in srgb, var(--theme-primary) 6%, transparent);
+		border: 1px solid color-mix(in srgb, var(--theme-primary) 12%, transparent);
+		border-radius: 9999px;
+		cursor: default;
+		opacity: 0;
+		animation: skillTagIn 0.35s ease forwards;
+		animation-delay: var(--skill-delay);
+		transition: all 0.2s ease;
+	}
+
+	.skill-tag:hover {
+		color: var(--theme-primary-foreground);
+		background: var(--theme-primary);
+		border-color: var(--theme-primary);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-primary) 30%, transparent);
+	}
+
+	@keyframes skillTagIn {
+		to {
+			opacity: 1;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.skills-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.skill-group {
+			padding: 1rem;
+		}
+
+		.skill-group-name {
+			font-size: 0.75rem;
+		}
+
+		.skill-tag {
+			padding: 0.3125rem 0.625rem;
+			font-size: 0.75rem;
 		}
 	}
 

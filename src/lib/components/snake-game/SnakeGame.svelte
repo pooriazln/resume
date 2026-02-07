@@ -9,6 +9,7 @@
 		lerpPos,
 		type SnakeState,
 		type Direction,
+		type Difficulty,
 	} from './snake-engine';
 
 	const CELL_SIZE = 16;
@@ -18,6 +19,7 @@
 
 	let wrapper: HTMLDivElement;
 	let gameContainer: HTMLDivElement;
+	let dpadEl: HTMLDivElement;
 	let game: SnakeState;
 	let lastTickTime = 0;
 	let restartTimer: ReturnType<typeof setTimeout> | null = null;
@@ -29,7 +31,16 @@
 
 	// Game is inactive until user clicks to play — no PixiJS, no rendering
 	let active = $state(false);
+	let difficulty: Difficulty = $state('normal');
 	let pixiReady = false;
+
+	const DIFFICULTIES: Difficulty[] = ['easy', 'normal', 'hard'];
+
+	function cycleDifficulty(e: MouseEvent): void {
+		e.stopPropagation();
+		const idx = DIFFICULTIES.indexOf(difficulty);
+		difficulty = DIFFICULTIES[(idx + 1) % DIFFICULTIES.length];
+	}
 
 	// PixiJS objects
 	let app: import('pixi.js').Application;
@@ -78,7 +89,6 @@
 			const px = seg.x * CELL_SIZE + half;
 			const py = seg.y * CELL_SIZE + half;
 			if (i > 0) {
-				// Insert intermediate points between consecutive segments
 				const prev = trail[trail.length - 1];
 				const steps = Math.ceil(CELL_SIZE / 2);
 				for (let s = 1; s < steps; s++) {
@@ -93,10 +103,6 @@
 		}
 	}
 
-	/**
-	 * Walk backward through trail measuring arc length, skipping wrap-around
-	 * discontinuities. Returns interpolated {x, y} at target distance.
-	 */
 	function walkTrail(distance: number, canvasW: number, canvasH: number): { x: number; y: number } {
 		if (trail.length === 0) return { x: 0, y: 0 };
 		if (distance <= 0) return { x: trail[0].x, y: trail[0].y };
@@ -111,7 +117,6 @@
 			const dx = b.x - a.x;
 			const dy = b.y - a.y;
 
-			// Skip wrap-around discontinuities
 			if (Math.abs(dx) > halfW || Math.abs(dy) > halfH) continue;
 
 			const segLen = Math.sqrt(dx * dx + dy * dy);
@@ -127,11 +132,9 @@
 			remaining -= segLen;
 		}
 
-		// Trail too short — return last point
 		return { x: trail[trail.length - 1].x, y: trail[trail.length - 1].y };
 	}
 
-	/** Modulo-wrap coordinates to canvas bounds */
 	function wrapPos(x: number, y: number, w: number, h: number): { x: number; y: number } {
 		return {
 			x: ((x % w) + w) % w,
@@ -139,7 +142,6 @@
 		};
 	}
 
-	/** Draw a body segment circle with size/alpha based on position in snake */
 	function drawSegment(x: number, y: number, index: number, total: number): void {
 		const segT = index / Math.max(total - 1, 1);
 		const alpha = 0.2 + 0.4 * (1 - segT);
@@ -197,7 +199,7 @@
 		if (!game || !isVisible || !active) return;
 
 		const now = performance.now();
-		const tickMs = getTickMs(game.score);
+		const tickMs = getTickMs(game.score, difficulty);
 
 		if (game.started && !game.gameOver) {
 			if (lastTickTime === 0) lastTickTime = now;
@@ -215,39 +217,32 @@
 			game.started && !game.gameOver && lastTickTime > 0
 				? Math.min(1, (now - lastTickTime) / tickMs)
 				: 1;
-		const interpT = rawT;
 
-		// -- Compute head pixel position and prepend to trail --
 		const headPrev = game.prevSnake[0] ?? game.snake[0];
 		const headCurr = game.snake[0];
-		const headPos = lerpPos(headPrev, headCurr, interpT, game.cols, game.rows, CELL_SIZE);
+		const headPos = lerpPos(headPrev, headCurr, rawT, game.cols, game.rows, CELL_SIZE);
 
-		// Prepend head position to trail
 		trail.unshift({ x: headPos.x, y: headPos.y });
 		if (trail.length > MAX_TRAIL) trail.length = MAX_TRAIL;
 
-		// -- Render snake --
 		snakeGfx.clear();
 		glowGfx.clear();
 		const len = game.snake.length;
 		const canvasW = game.cols * CELL_SIZE;
 		const canvasH = game.rows * CELL_SIZE;
 
-		// Draw head
 		const wrappedHead = wrapPos(headPos.x, headPos.y, canvasW, canvasH);
 		snakeGfx.circle(wrappedHead.x, wrappedHead.y, CELL_SIZE * 0.42);
 		snakeGfx.fill({ color: primaryColor, alpha: 0.75 });
 		glowGfx.circle(wrappedHead.x, wrappedHead.y, CELL_SIZE * 0.75);
 		glowGfx.fill({ color: primaryColor, alpha: 0.12 });
 
-		// Draw body segments by walking the trail
 		for (let i = 1; i < len; i++) {
 			const pos = walkTrail(i * SEGMENT_SPACING, canvasW, canvasH);
 			const wrapped = wrapPos(pos.x, pos.y, canvasW, canvasH);
 			drawSegment(wrapped.x, wrapped.y, i, len);
 		}
 
-		// -- Render food --
 		foodGfx.clear();
 		const pulse = 0.85 + 0.15 * Math.sin(now * 0.004);
 		const fx = game.food.x * CELL_SIZE + CELL_SIZE / 2;
@@ -259,7 +254,6 @@
 		foodGfx.circle(fx, fy, foodR);
 		foodGfx.fill({ color: accentColor, alpha: 0.65 });
 
-		// -- Score text --
 		if (game.started) {
 			scoreText.text = `${$t.snakeGame.score}: ${game.score}`;
 			scoreText.style.fill = foregroundColor;
@@ -277,7 +271,6 @@
 			scoreText.visible = false;
 		}
 
-		// -- Game over text --
 		if (game.gameOver) {
 			centerText.text = $t.snakeGame.gameOver;
 			centerText.style.fill = foregroundColor;
@@ -314,10 +307,8 @@
 		if (lastTickTime <= 0) return;
 
 		const now = performance.now();
-		const tickMs = getTickMs(game.score);
+		const tickMs = getTickMs(game.score, difficulty);
 
-		// Capture the current visual head position into the trail before the tick
-		// so the body path stays continuous through the direction change
 		const rawT = Math.min(1, (now - lastTickTime) / tickMs);
 		const headPrev = game.prevSnake[0] ?? game.snake[0];
 		const headCurr = game.snake[0];
@@ -326,7 +317,6 @@
 		if (trail.length > MAX_TRAIL) trail.length = MAX_TRAIL;
 
 		tick(game);
-		// Give the head a small initial offset so it doesn't appear stuck at t=0
 		lastTickTime = now - tickMs * 0.15;
 		if (game.gameOver) scheduleRestart();
 	}
@@ -369,6 +359,13 @@
 		applyDirection(newDir);
 	}
 
+	function handlePadDown(dir: Direction, e: PointerEvent | TouchEvent): void {
+		e.preventDefault();
+		e.stopPropagation();
+		if (!game || !active) return;
+		applyDirection(dir);
+	}
+
 	function handleFocus(): void {
 		isFocused = true;
 	}
@@ -388,7 +385,6 @@
 			await initPixi();
 			pixiReady = true;
 		} else {
-			// Re-use existing PixiJS instance
 			const rect = wrapper.getBoundingClientRect();
 			logicalW = rect.width;
 			logicalH = rect.height;
@@ -399,7 +395,6 @@
 			app.ticker.start();
 		}
 
-		// Start the snake immediately
 		game.started = true;
 		lastTickTime = 0;
 	}
@@ -481,6 +476,10 @@
 	onMount(() => {
 		readColors();
 
+		// Portal D-pad to document.body so position:fixed works
+		// (ancestors with CSS transforms break fixed positioning)
+		if (dpadEl) document.body.appendChild(dpadEl);
+
 		const themeObs = new MutationObserver(() => readColors());
 		themeObs.observe(document.documentElement, {
 			attributes: true,
@@ -509,6 +508,7 @@
 			window.removeEventListener('keydown', handleKeydown);
 			if (restartTimer) clearTimeout(restartTimer);
 			if (app) app.destroy(true, { children: true });
+			if (dpadEl) dpadEl.remove();
 		};
 	});
 </script>
@@ -523,39 +523,95 @@
 	onfocus={handleFocus}
 	onblur={handleBlur}
 >
-	{#if active}
+	<!-- Dot grid — always visible to define playground bounds -->
+	<div class="overlay-grid"></div>
+
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		bind:this={gameContainer}
+		class="snake-viewport"
+		class:pointer-events-none={!active}
+		onpointerdown={active ? handleTap : undefined}
+	></div>
+
+	{#if !active}
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div
-			bind:this={gameContainer}
-			class="snake-viewport"
-			onpointerdown={handleTap}
-		></div>
-	{:else}
-		<button class="snake-hint" onclick={() => activate()}>
-			{$t.snakeGame.hint}
-		</button>
+		<div class="snake-overlay" onclick={() => activate()}>
+			<!-- Faint play triangle — barely visible, reveals on hover -->
+			<svg class="overlay-play-hint" viewBox="0 0 24 24" fill="currentColor">
+				<path d="M8 5v14l11-7z"/>
+			</svg>
+			<!-- Cycling difficulty button in corner -->
+			<button class="difficulty-btn" onclick={cycleDifficulty}>
+				{$t.snakeGame.difficulties[difficulty]}
+			</button>
+		</div>
 	{/if}
+</div>
+
+<!-- D-pad: always in DOM, portaled to body, shown/hidden via class -->
+<div bind:this={dpadEl} class="dpad" class:dpad-active={active} role="group" aria-label="Direction controls">
+	<button
+		class="dpad-btn dpad-up"
+		aria-label="Up"
+		onpointerdown={(e) => handlePadDown('up', e)}
+		ontouchstart={(e) => e.preventDefault()}
+	>
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			<polyline points="6 15 12 9 18 15"></polyline>
+		</svg>
+	</button>
+	<button
+		class="dpad-btn dpad-left"
+		aria-label="Left"
+		onpointerdown={(e) => handlePadDown('left', e)}
+		ontouchstart={(e) => e.preventDefault()}
+	>
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			<polyline points="15 6 9 12 15 18"></polyline>
+		</svg>
+	</button>
+	<button
+		class="dpad-btn dpad-right"
+		aria-label="Right"
+		onpointerdown={(e) => handlePadDown('right', e)}
+		ontouchstart={(e) => e.preventDefault()}
+	>
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			<polyline points="9 6 15 12 9 18"></polyline>
+		</svg>
+	</button>
+	<button
+		class="dpad-btn dpad-down"
+		aria-label="Down"
+		onpointerdown={(e) => handlePadDown('down', e)}
+		ontouchstart={(e) => e.preventDefault()}
+	>
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			<polyline points="6 9 12 15 18 9"></polyline>
+		</svg>
+	</button>
 </div>
 
 <style>
 	.snake-wrapper {
 		position: relative;
 		width: 100%;
-		max-width: 360px;
-		height: 220px;
-		margin: 0 auto;
+		height: 100%;
 		border-radius: 0.75rem;
-		border: 1px solid var(--theme-border);
-		background: color-mix(in srgb, var(--theme-card) 50%, transparent);
+		border: 1px solid transparent;
 		overflow: hidden;
 		outline: none;
-		transition: border-color 0.2s ease;
 		-webkit-tap-highlight-color: transparent;
+		cursor: default;
+		transition: border-color 0.3s ease, background 0.3s ease;
 	}
 
 	.snake-wrapper:focus,
 	.snake-wrapper:focus-within {
-		border-color: var(--theme-primary);
+		border-color: color-mix(in srgb, var(--theme-primary) 25%, transparent);
+		background: color-mix(in srgb, var(--theme-card) 30%, transparent);
 	}
 
 	.snake-viewport {
@@ -565,23 +621,148 @@
 		touch-action: none;
 	}
 
-	.snake-hint {
+	.pointer-events-none {
+		pointer-events: none;
+	}
+
+	/* Overlay — looks decorative, not obviously a game */
+	.snake-overlay {
+		position: absolute;
+		inset: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
-		height: 100%;
-		background: none;
-		border: none;
-		color: var(--theme-muted-foreground);
-		font-family: 'Vazirmatn', 'Inter', sans-serif;
-		font-size: 0.8rem;
+		z-index: 2;
 		cursor: pointer;
-		opacity: 0.55;
-		transition: opacity 0.2s ease;
 	}
 
-	.snake-hint:hover {
-		opacity: 0.85;
+	.overlay-grid {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background-image:
+			radial-gradient(circle, color-mix(in srgb, var(--theme-foreground) 6%, transparent) 1px, transparent 1px);
+		background-size: 16px 16px;
+		pointer-events: none;
+	}
+
+	/* Barely visible play triangle — curiosity trigger */
+	.overlay-play-hint {
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--theme-primary);
+		opacity: 0.08;
+		transition: opacity 0.4s ease, transform 0.4s ease;
+		pointer-events: none;
+	}
+
+	.snake-overlay:hover .overlay-play-hint {
+		opacity: 0.35;
+		transform: scale(1.15);
+	}
+
+	/* Single cycling difficulty button — subtle, corner-positioned */
+	.difficulty-btn {
+		position: absolute;
+		bottom: 0.5rem;
+		right: 0.5rem;
+		padding: 0.2rem 0.6rem;
+		background: transparent;
+		border: none;
+		border-radius: 0.25rem;
+		color: var(--theme-muted-foreground);
+		font-family: 'First Time Writing!', 'Inter', sans-serif;
+		font-size: 0.8rem;
+		cursor: pointer;
+		opacity: 0;
+		transition: opacity 0.3s ease, color 0.2s ease;
+	}
+
+	[dir="rtl"] .difficulty-btn {
+		right: auto;
+		left: 0.5rem;
+	}
+
+	.snake-overlay:hover .difficulty-btn {
+		opacity: 0.5;
+	}
+
+	.difficulty-btn:hover {
+		opacity: 0.8 !important;
+		color: var(--theme-primary);
+	}
+
+	/* Mobile D-pad — portaled to body, touch devices only */
+	.dpad {
+		display: none;
+	}
+
+	@media (hover: none) and (pointer: coarse) {
+		.dpad {
+			display: none;
+			grid-template-columns: repeat(3, 2.75rem);
+			grid-template-rows: repeat(3, 2.75rem);
+			gap: 0.2rem;
+			position: fixed;
+			bottom: 1rem;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 9999;
+			touch-action: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		.dpad-active {
+			display: grid;
+		}
+
+		.dpad-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.75rem;
+			height: 2.75rem;
+			border: 1px solid color-mix(in srgb, var(--theme-primary) 25%, transparent);
+			border-radius: 0.625rem;
+			background: color-mix(in srgb, var(--theme-background) 90%, transparent);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			color: var(--theme-primary);
+			cursor: pointer;
+			touch-action: none;
+			-webkit-tap-highlight-color: transparent;
+			transition: background 0.1s ease, transform 0.1s ease;
+			padding: 0;
+		}
+
+		.dpad-btn:active {
+			background: color-mix(in srgb, var(--theme-primary) 25%, transparent);
+			transform: scale(0.9);
+		}
+
+		.dpad-btn svg {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+
+		.dpad-up {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		.dpad-left {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		.dpad-right {
+			grid-column: 3;
+			grid-row: 2;
+		}
+
+		.dpad-down {
+			grid-column: 2;
+			grid-row: 3;
+		}
 	}
 </style>

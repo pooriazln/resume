@@ -3,7 +3,7 @@ export type Language = "fa" | "en";
 export const translations = {
   fa: {
     name: "پوریا ذوالوریان",
-    greeting: "سلام، من",
+    greeting: "",
     title: "فول‌استک و وب۳",
     titleParts: ["فول‌استک", "وب۳", "تجربه‌های سه‌بعدی"],
     location: "شیراز، ایران",
@@ -149,8 +149,10 @@ export const translations = {
     snakeGame: {
       sectionTitle: "یه استراحت کوچیک",
       hint: "کلیک کنید و با کلیدهای جهت‌دار بازی کنید",
+      play: "شروع",
       score: "امتیاز",
       gameOver: "پایان بازی",
+      difficulties: { easy: "آسان", normal: "متوسط", hard: "سخت" },
     },
     footer:
       "آماده همکاری در پروژه‌های فریلنس، قراردادی و تمام‌وقت — به‌خصوص وب۳، وب تعاملی و فول‌استک خلاقانه",
@@ -305,8 +307,10 @@ export const translations = {
     snakeGame: {
       sectionTitle: "Take a Break",
       hint: "Click & use arrow keys to play",
+      play: "Play",
       score: "Score",
       gameOver: "Game Over",
+      difficulties: { easy: "Easy", normal: "Normal", hard: "Hard" },
     },
     footer:
       "Open to freelance, contract & full-time opportunities — especially Web3, interactive web and creative full-stack projects",
