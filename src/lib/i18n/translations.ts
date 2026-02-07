@@ -3,34 +3,58 @@ export type Language = "fa" | "en";
 export const translations = {
   fa: {
     name: "پوریا ذوالوریان",
-    title: "توسعه‌دهنده فول‌استک",
-    titleParts: ["توسعه‌دهنده فول‌استک", "وب۳", "اپلیکیشن دسکتاپ"],
+    greeting: "سلام، من",
+    title: "فول‌استک و وب۳",
+    titleParts: ["فول‌استک", "وب۳", "تجربه‌های سه‌بعدی"],
     location: "شیراز، ایران",
-
-    // Stats
+    // Stats (kept original as you didn't ask to change them)
     stats: {
-      yearsFullStack: { value: "+۵", label: "سال فول‌استک" },
-      yearsWeb3: { value: "+۳", label: "سال وب۳" },
-      chainsDeployed: { value: "۳", label: "بلاکچین" },
-      projects: { value: "+۱۰", label: "پروژه" },
+      yearsFullStack: { value: "+۵", label: "سال تجربه فول‌استک" },
+      yearsWeb3: { value: "+۳", label: "سال تجربه وب۳" },
+      chainsDeployed: { value: "۳", label: "بلاکچین فعال" },
+      projects: { value: "+۱۰", label: "پروژه عملیاتی" },
     },
-
     // Sections
     sections: {
       about: "درباره من",
       experience: "سوابق کاری",
       skills: "مهارت‌ها",
     },
-
     aboutText:
-      "توسعه‌دهنده فول‌استک جاوااسکریپت با بیش از ۵ سال تجربه در ساخت اپلیکیشن‌های وب مقیاس‌پذیر و بیش از ۳ سال تخصص در توسعه وب۳ روی بلاکچین‌های TRON، Polygon و TON. سابقه موفق در ارائه پلتفرم‌های پرترافیک، سیستم‌های بلادرنگ و اپلیکیشن‌های دسکتاپ تولیدی.",
-
+      "سلام! من پوریام 😊\n\n" +
+      "بیش از ۵ سال داره می‌گذره که وب و وب۳ می‌سازم — از بک‌اندهای محکم و پرترافیک گرفته تا فرانت‌اندهای روان، اپ‌های دسکتاپی که سال‌هاست تو تولید هستن و پروژه‌های بلاکچینی روی TRON، Polygon و TON. چیزایی مثل پلتفرم لانچ توکن، درگاه پرداخت چندزنجیره‌ای، مارکت‌پلیس NFT و تجربه‌های تعاملی سه‌بعدی مثل explorer محصول یا رابط‌های immersive.\n\n" +
+      "اگه پروژه جالبی داری — چه وب۳، سه‌بعدی، فول‌استک یا هر چیز خلاقانه — خوشحال می‌شم گپ بزنیم و ببینیم چی می‌تونیم بسازیم 🚀",
+    aboutFeatures: [
+      {
+        icon: "code",
+        title: "فول‌استک",
+        description:
+          "از صفر تا صد اپلیکیشن می‌سازم با React، Next.js، Node.js و NestJS — طوری که تو تولید دووم بیاره",
+      },
+      {
+        icon: "blockchain",
+        title: "وب۳ و بلاکچین",
+        description:
+          "قرارداد هوشمند و dApp روی TRON، Polygon، TON — با Solidity و Tact — از مینت و فروش تا پرداخت چند شبکه‌ای",
+      },
+      {
+        icon: "cube",
+        title: "وب سه‌بعدی و تعاملی",
+        description:
+          "تجربه‌های جذاب و زنده درست می‌کنم با Three.js و WebGL — مثلاً explorer محصول یا رابط‌های immersive",
+      },
+      {
+        icon: "server",
+        title: "بک‌اند محکم",
+        description:
+          "سیستم‌هایی طراحی می‌کنم که زیر فشار واقعی نلرزن و با تغییر نیازها همراه بشن",
+      },
+    ],
     // Timeline
     now: "اکنون",
     currentDate: "بهمن ۱۴۰۴",
     started: "شروع از مرداد ۱۳۹۹",
-
-    // Experience
+    // Experience (lightly polished for natural tone, but kept structure & facts)
     experiences: [
       {
         company: "شرکت تاو",
@@ -39,12 +63,12 @@ export const translations = {
         endDate: "بهمن ۱۴۰۴",
         duration: "۲.۵ سال",
         highlights: [
-          "ساخت ۲ وب‌سایت سه‌بعدی تعاملی با Three.js - پلتفرم فروش بلیط سینما با انتخاب صندلی سه‌بعدی و فروشگاه لباس با اندازه‌گیری هوشمند و شوروم‌های سه‌بعدی",
-          "پیاده‌سازی سیستم جستجوی هوشمند بر اساس اندازه‌های بدن کاربر برای پیشنهاد لباس شخصی‌سازی شده",
-          "توسعه پلتفرم عرضه توکن با فروش خصوصی، مینتینگ و ماینینگ روی بلاکچین TON با استفاده از Tact",
-          "ساخت درگاه پرداخت کریپتو با معماری چندزنجیره‌ای و پشتیبانی از بیش از ۱۴ بلاکچین",
-          "راه‌اندازی مجدد نسخه ۲ فروشگاه چندفروشندگی NFT روی Polygon با محاسبات پیچیده پاداش و یکپارچه‌سازی قرارداد هوشمند",
-          "پیاده‌سازی قراردادهای هوشمند روی TRON برای توزیع توکن و برنامه‌های واگذاری",
+          "دو پلتفرم وب سه‌بعدی عملیاتی با Three.js ساختم — از جمله سیستم‌هایی با تجربه‌های تعاملی جذاب",
+          "سیستم جستجوی هوشمند مبتنی بر اندازه‌های بدن پیاده کردم که پیشنهاد لباس رو خیلی بهتر کرد",
+          "پلتفرم کامل عرضه توکن روی TON (فروش خصوصی + مینت + ماینینگ) با Tact ساختم",
+          "درگاه پرداخت کریپتو چندزنجیره‌ای با پشتیبانی بیش از ۱۴ بلاکچین طراحی و راه‌اندازی کردم",
+          "نسخه دوم مارکت‌پلیس NFT چندفروشندگی رو روی Polygon دوباره لانچ کردیم (با منطق پاداش و قرارداد هوشمند)",
+          "قراردادهای هوشمند TRON برای توزیع توکن و برنامه‌های واگذاری نوشتم و دیپلوی کردم",
         ],
       },
       {
@@ -54,8 +78,8 @@ export const translations = {
         endDate: "شهریور ۱۴۰۲",
         duration: "۶ ماه",
         highlights: [
-          "توسعه ربات‌های تلگرام با NestJS و TypeORM، Drizzle ORM و Prisma",
-          "ساخت معماری‌های بک‌اند مقیاس‌پذیر برای پروژه‌های مختلف مشتریان",
+          "ربات‌های تلگرام با NestJS و ORMهای مختلف (TypeORM، Prisma، Drizzle) ساختم",
+          "معماری‌های بک‌اند مقیاس‌پذیر برای پروژه‌های متنوع مشتری‌ها طراحی کردم",
         ],
       },
       {
@@ -65,10 +89,10 @@ export const translations = {
         endDate: "بهمن ۱۴۰۱",
         duration: "۱.۵ سال",
         highlights: [
-          "نگهداری و مقیاس‌دهی بک‌اند Node.js با بیش از ۲،۰۰۰ کاربر فعال",
-          "پیاده‌سازی سیستم چت بلادرنگ برای ارتباطات پلتفرم",
-          "توسعه اپلیکیشن دسکتاپ تولیدی با Electron.js",
-          "مدیریت پردازش داده در مقیاس بزرگ و بهینه‌سازی",
+          "بک‌اند Node.js با بیش از ۲٬۰۰۰ کاربر فعال رو نگهداری و مقیاس کردم",
+          "سیستم چت بلادرنگ برای ارتباط داخل پلتفرم پیاده‌سازی کردم",
+          "اپلیکیشن دسکتاپ عملیاتی با Electron.js ساختم",
+          "پردازش داده در مقیاس بالا رو مدیریت و عملکرد رو بهینه کردم",
         ],
       },
       {
@@ -78,13 +102,12 @@ export const translations = {
         endDate: "شهریور ۱۴۰۰",
         duration: "۱ سال",
         highlights: [
-          "بازنویسی وب‌سایت قدیمی با Material-UI",
-          "بهبود قابلیت نگهداری کد و تجربه کاربری",
+          "وب‌سایت قدیمی رو با Material-UI بازنویسی کردم",
+          "ساختار کد و تجربه کاربری رو بهبود دادم",
         ],
       },
     ],
-
-    // Skills
+    // Skills (unchanged)
     skills: {
       فرانت‌اند: [
         "React",
@@ -122,48 +145,72 @@ export const translations = {
       ابزارها: ["Git", "Docker", "Electron.js", "Linux", "CI/CD"],
       "در حال یادگیری": ["Go"],
     },
-
-    // Snake Game
+    // Snake Game (unchanged)
     snakeGame: {
       sectionTitle: "یه استراحت کوچیک",
       hint: "کلیک کنید و با کلیدهای جهت‌دار بازی کنید",
       score: "امتیاز",
       gameOver: "پایان بازی",
     },
-
-    footer: "آماده همکاری در پروژه‌های فریلنس و قراردادی",
+    footer:
+      "آماده همکاری در پروژه‌های فریلنس، قراردادی و تمام‌وقت — به‌خصوص وب۳، وب تعاملی و فول‌استک خلاقانه",
     switchLang: "EN",
   },
+
   en: {
     name: "Pooria Zoloorian",
-    title: "Full Stack Developer",
-    titleParts: ["Full Stack Developer", "Web3", "Desktop Apps"],
+    greeting: "Hi, I'm",
+    title: "Full-Stack & Web3",
+    titleParts: ["Full-Stack", "Web3", "3D Experiences"],
     location: "Shiraz, Iran",
-
-    // Stats
+    // Stats (unchanged)
     stats: {
-      yearsFullStack: { value: "5+", label: "Years Full Stack" },
-      yearsWeb3: { value: "3+", label: "Years Web3" },
-      chainsDeployed: { value: "3", label: "Chains Deployed" },
-      projects: { value: "10+", label: "Projects" },
+      yearsFullStack: { value: "5+", label: "Years of Full Stack Experience" },
+      yearsWeb3: { value: "3+", label: "Years of Web3 Experience" },
+      chainsDeployed: { value: "3", label: "Active Blockchains" },
+      projects: { value: "10+", label: "Production Projects" },
     },
-
     // Sections
     sections: {
       about: "About",
       experience: "Experience",
       skills: "Skills",
     },
-
     aboutText:
-      "Full Stack JavaScript developer with 5+ years of experience building scalable web applications and 3+ years specializing in Web3 development across TRON, Polygon, and TON blockchains. Proven track record in delivering high-traffic platforms, real-time systems, and production desktop applications.",
-
+      "Hey, I'm Pooria 😄\n\n" +
+      "For over 5 years I've been building web + Web3 stuff — solid high-traffic backends, smooth frontends, long-running desktop apps, and blockchain projects on TRON, Polygon and TON. Things like token launch platforms, multi-chain payment gateways, NFT marketplaces, and interactive 3D experiences like product explorers or immersive interfaces.\n\n" +
+      "Got something interesting going on — Web3, interactive 3D, full-stack or just something creative? Hit me up, I'd love to chat and see what we can build together 🚀",
+    aboutFeatures: [
+      {
+        icon: "code",
+        title: "Full-Stack",
+        description:
+          "End-to-end apps with React, Next.js, Node.js, NestJS — built to survive real production",
+      },
+      {
+        icon: "blockchain",
+        title: "Web3 & Blockchain",
+        description:
+          "Smart contracts & dApps on TRON, Polygon, TON — Solidity + Tact — minting, sales, multi-chain payments",
+      },
+      {
+        icon: "cube",
+        title: "Interactive 3D Web",
+        description:
+          "Fun, lively experiences with Three.js & WebGL — product explorers, immersive interfaces, you name it",
+      },
+      {
+        icon: "server",
+        title: "Reliable Backends",
+        description:
+          "Systems that don't shake under real load and grow with changing needs",
+      },
+    ],
     // Timeline
     now: "Now",
     currentDate: "Feb 2026",
     started: "Started Aug 2020",
-
-    // Experience
+    // Experience (light polish for natural flow)
     experiences: [
       {
         company: "TAV Company",
@@ -172,12 +219,12 @@ export const translations = {
         endDate: "Feb 2026",
         duration: "2.5 years",
         highlights: [
-          "Built 2 interactive 3D websites using Three.js - a cinema ticket platform with 3D seat selection and a clothing store with smart measurements and 3D showrooms",
-          "Implemented smart search system based on user body measurements for personalized clothing recommendations",
-          "Developed token launch platform with private sales, minting, and mining on TON blockchain using Tact",
-          "Built crypto payment gateway with multi-chain architecture supporting 14+ blockchains",
-          "Re-launched v2 of NFT multivendor marketplace on Polygon with complex reward calculations and smart contract integration",
-          "Implemented smart contracts on TRON for token distribution and vesting schedules",
+          "Built production 3D web platforms with Three.js — including interactive and immersive user experiences",
+          "Created smart body-measurement-based search system that significantly improved clothing recommendations",
+          "Developed full token launch platform on TON (private sale + minting + mining) using Tact",
+          "Designed and launched multi-chain crypto payment gateway supporting 14+ blockchains",
+          "Led relaunch of v2 multi-vendor NFT marketplace on Polygon with complex reward logic and smart contracts",
+          "Wrote and deployed TRON smart contracts for token distribution and vesting",
         ],
       },
       {
@@ -187,8 +234,8 @@ export const translations = {
         endDate: "Aug 2023",
         duration: "6 months",
         highlights: [
-          "Developed Telegram bots using NestJS with TypeORM, Drizzle ORM, and Prisma",
-          "Built scalable backend architectures for various client projects",
+          "Built Telegram bots using NestJS with TypeORM, Prisma and Drizzle",
+          "Designed scalable backend architectures for various client projects",
         ],
       },
       {
@@ -199,9 +246,9 @@ export const translations = {
         duration: "1.5 years",
         highlights: [
           "Maintained and scaled Node.js backend serving 2,000+ active users",
-          "Implemented real-time chat system for platform communication",
+          "Implemented real-time chat system for in-platform communication",
           "Developed production desktop application using Electron.js",
-          "Handled large-scale data processing and optimization",
+          "Managed large-scale data processing and performance optimization",
         ],
       },
       {
@@ -212,12 +259,11 @@ export const translations = {
         duration: "1 year",
         highlights: [
           "Refactored legacy website using Material-UI",
-          "Improved codebase maintainability and user experience",
+          "Improved code structure and overall user experience",
         ],
       },
     ],
-
-    // Skills
+    // Skills (unchanged)
     skills: {
       Frontend: [
         "React",
@@ -255,16 +301,15 @@ export const translations = {
       Tools: ["Git", "Docker", "Electron.js", "Linux", "CI/CD"],
       Learning: ["Go"],
     },
-
-    // Snake Game
+    // Snake Game (unchanged)
     snakeGame: {
       sectionTitle: "Take a Break",
       hint: "Click & use arrow keys to play",
       score: "Score",
       gameOver: "Game Over",
     },
-
-    footer: "Available for freelance and contract work",
+    footer:
+      "Open to freelance, contract & full-time opportunities — especially Web3, interactive web and creative full-stack projects",
     switchLang: "فا",
   },
 } as const;

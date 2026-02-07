@@ -33,86 +33,131 @@
 </div>
 
 <!-- Hero Section -->
-<div class="hero" class:visible>
+<header class="hero" class:visible>
+	<!-- Background effects -->
 	<div class="hero-bg">
-		<div class="orb orb-1"></div>
-		<div class="orb orb-2"></div>
-		<div class="orb orb-3"></div>
-		<!-- Floating particles -->
-		<div class="particle particle-1"></div>
-		<div class="particle particle-2"></div>
-		<div class="particle particle-3"></div>
-		<div class="particle particle-4"></div>
-		<div class="particle particle-5"></div>
-		<div class="particle particle-6"></div>
+		<div class="hero-grid"></div>
+		<div class="hero-glow hero-glow-1"></div>
+		<div class="hero-glow hero-glow-2"></div>
 	</div>
+
 	<div class="hero-content">
-		<h1 class="text-5xl md:text-6xl font-bold text-foreground mb-4 tracking-tight animate-fade-up">
-			{$t.name}
-		</h1>
-		<p class="text-lg md:text-xl text-muted-foreground mb-6 font-light tracking-wide animate-fade-up-delay-1">
-			{$t.titleParts[0]} <span class="text-primary">/</span> {$t.titleParts[1]} <span class="text-primary">/</span> {$t.titleParts[2]}
-		</p>
-		<div class="flex items-center justify-center flex-wrap gap-4 text-sm animate-fade-up-delay-2">
-			<a href="mailto:pooria.zln83@gmail.com" class="text-primary hover:opacity-80 transition-opacity">
-				pooria.zln83@gmail.com
+		<div class="hero-intro animate-fade-up">
+			<span class="hero-greeting">{$t.greeting}</span>
+			<h1 class="hero-name">{$t.name}</h1>
+		</div>
+		<div class="hero-title-wrapper animate-fade-up-delay-2">
+			<span class="hero-title-item">{$t.titleParts[0]}</span>
+			<span class="hero-title-divider"></span>
+			<span class="hero-title-item">{$t.titleParts[1]}</span>
+			<span class="hero-title-divider"></span>
+			<span class="hero-title-item">{$t.titleParts[2]}</span>
+		</div>
+		<div class="hero-links animate-fade-up-delay-3">
+			<a href="mailto:pooria.zln83@gmail.com" class="hero-link">
+				<span class="hero-link-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<rect x="2" y="4" width="20" height="16" rx="2"></rect>
+						<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+					</svg>
+				</span>
+				<span>pooria.zln83@gmail.com</span>
 			</a>
-			<span class="w-1 h-1 rounded-full bg-primary"></span>
-			<a href="https://github.com/pooriazln" target="_blank" rel="noopener" class="text-primary hover:opacity-80 transition-opacity">
-				github.com/pooriazln
+			<a href="https://github.com/pooriazln" target="_blank" rel="noopener" class="hero-link">
+				<span class="hero-link-icon">
+					<svg viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+					</svg>
+				</span>
+				<span>github.com/pooriazln</span>
 			</a>
-			<span class="w-1 h-1 rounded-full bg-primary"></span>
-			<span class="text-muted-foreground">{$t.location}</span>
+			<span class="hero-link hero-location">
+				<span class="hero-link-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+						<circle cx="12" cy="10" r="3"></circle>
+					</svg>
+				</span>
+				<span>{$t.location}</span>
+			</span>
 		</div>
 	</div>
 
 	<!-- Scroll indicator -->
 	<div class="scroll-indicator">
-		<div class="scroll-line"></div>
+		<div class="scroll-mouse">
+			<div class="scroll-wheel"></div>
+		</div>
 	</div>
-</div>
+</header>
 
 <!-- Main Content -->
 <main class="main-container" class:visible>
 	<!-- Stats -->
-	<section class="relative grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-		<!-- Subtle glow behind stats -->
-		<div class="absolute inset-0 -z-10 blur-3xl opacity-20">
-			<div class="absolute top-1/2 left-1/4 w-32 h-32 bg-primary rounded-full"></div>
-			<div class="absolute top-1/2 right-1/4 w-24 h-24 bg-accent rounded-full"></div>
+	<section class="stats-section mb-12">
+		<div class="stats-grid">
+			<div class="stat-card" style="--delay: 0s">
+				<div class="stat-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+						<line x1="8" y1="21" x2="16" y2="21"></line>
+						<line x1="12" y1="17" x2="12" y2="21"></line>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<span class="stat-value">{$t.stats.yearsFullStack.value}</span>
+					<span class="stat-label">{$t.stats.yearsFullStack.label}</span>
+				</div>
+				<div class="stat-glow"></div>
+			</div>
+			<div class="stat-card" style="--delay: 0.1s">
+				<div class="stat-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M10.5 20.5L10 17l-2.5-1.5L5 12V8.5L7 6l3-1h4l3 1 2 2.5V12l-2.5 3.5L14 17l-.5 3.5"></path>
+						<path d="M12 12l-2-1v-2l2-1 2 1v2l-2 1z"></path>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<span class="stat-value">{$t.stats.yearsWeb3.value}</span>
+					<span class="stat-label">{$t.stats.yearsWeb3.label}</span>
+				</div>
+				<div class="stat-glow"></div>
+			</div>
+			<div class="stat-card" style="--delay: 0.2s">
+				<div class="stat-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<span class="stat-value">{$t.stats.chainsDeployed.value}</span>
+					<span class="stat-label">{$t.stats.chainsDeployed.label}</span>
+				</div>
+				<div class="stat-glow"></div>
+			</div>
+			<div class="stat-card" style="--delay: 0.3s">
+				<div class="stat-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<span class="stat-value">{$t.stats.projects.value}</span>
+					<span class="stat-label">{$t.stats.projects.label}</span>
+				</div>
+				<div class="stat-glow"></div>
+			</div>
 		</div>
-		<Card class="text-center hover:border-primary transition-colors duration-200 hover:-translate-y-0.5">
-			<CardContent class="p-5">
-				<span class="block text-2xl font-bold text-primary mb-1">{$t.stats.yearsFullStack.value}</span>
-				<span class="text-xs text-muted-foreground uppercase tracking-wider">{$t.stats.yearsFullStack.label}</span>
-			</CardContent>
-		</Card>
-		<Card class="text-center hover:border-primary transition-colors duration-200 hover:-translate-y-0.5">
-			<CardContent class="p-5">
-				<span class="block text-2xl font-bold text-primary mb-1">{$t.stats.yearsWeb3.value}</span>
-				<span class="text-xs text-muted-foreground uppercase tracking-wider">{$t.stats.yearsWeb3.label}</span>
-			</CardContent>
-		</Card>
-		<Card class="text-center hover:border-primary transition-colors duration-200 hover:-translate-y-0.5">
-			<CardContent class="p-5">
-				<span class="block text-2xl font-bold text-primary mb-1">{$t.stats.chainsDeployed.value}</span>
-				<span class="text-xs text-muted-foreground uppercase tracking-wider">{$t.stats.chainsDeployed.label}</span>
-			</CardContent>
-		</Card>
-		<Card class="text-center hover:border-primary transition-colors duration-200 hover:-translate-y-0.5">
-			<CardContent class="p-5">
-				<span class="block text-2xl font-bold text-primary mb-1">{$t.stats.projects.value}</span>
-				<span class="text-xs text-muted-foreground uppercase tracking-wider">{$t.stats.projects.label}</span>
-			</CardContent>
-		</Card>
 	</section>
 
 	<!-- About -->
 	<section class="mb-12">
 		<h2 class="section-title">{$t.sections.about}</h2>
-		<p class="text-muted-foreground leading-relaxed">
-			{$t.aboutText}
-		</p>
+		<div class="about-container">
+			<p class="about-text">
+				{$t.aboutText}
+			</p>
+		</div>
 	</section>
 
 	<!-- Experience Timeline -->
@@ -161,16 +206,21 @@
 							</div>
 						</CardHeader>
 						<CardContent>
-							<ul class="space-y-2">
-								{#each exp.highlights as highlight}
+							<ul class="highlights-list">
+								{#each exp.highlights as highlight, idx}
 									<li
-										class="relative text-sm text-muted-foreground before:content-[''] before:absolute before:top-2 before:w-1 before:h-1 before:rounded-full before:bg-primary"
-										class:pl-4={$dir === 'ltr'}
-										class:pr-4={$dir === 'rtl'}
-										class:before:left-0={$dir === 'ltr'}
-										class:before:right-0={$dir === 'rtl'}
+										class="highlight-item"
+										class:highlight-ltr={$dir === 'ltr'}
+										class:highlight-rtl={$dir === 'rtl'}
+										style="--delay: {idx * 0.1}s"
 									>
-										{highlight}
+										<span class="highlight-icon">
+											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+												<polyline points="9 11 12 14 22 4"></polyline>
+												<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+											</svg>
+										</span>
+										<span class="highlight-text">{highlight}</span>
 									</li>
 								{/each}
 							</ul>
@@ -243,13 +293,14 @@
 	/* Hero Section */
 	.hero {
 		position: relative;
-		min-height: 60vh;
+		min-height: 85vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding: 4rem 1.5rem;
 		overflow: hidden;
 		opacity: 0;
-		transition: opacity 1s ease;
+		transition: opacity 0.8s ease;
 	}
 
 	.hero.visible {
@@ -262,133 +313,53 @@
 		overflow: hidden;
 	}
 
-	.orb {
+	.hero-grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(color-mix(in srgb, var(--theme-primary) 5%, transparent) 1px, transparent 1px),
+			linear-gradient(90deg, color-mix(in srgb, var(--theme-primary) 5%, transparent) 1px, transparent 1px);
+		background-size: 60px 60px;
+		mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+		-webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+	}
+
+	.hero-glow {
 		position: absolute;
 		border-radius: 50%;
 		filter: blur(80px);
-		opacity: var(--orb-opacity, 0.5);
-		animation: float 20s ease-in-out infinite;
-		transition: opacity 0.5s ease;
+		pointer-events: none;
 	}
 
-	.orb-1 {
+	.hero-glow-1 {
+		width: 500px;
+		height: 500px;
+		top: 10%;
+		left: 20%;
+		background: var(--theme-primary);
+		opacity: 0.15;
+		animation: heroFloat 12s ease-in-out infinite;
+	}
+
+	.hero-glow-2 {
 		width: 400px;
 		height: 400px;
-		background: var(--theme-primary);
-		top: -10%;
-		left: 20%;
-		animation-delay: 0s;
-	}
-
-	.orb-2 {
-		width: 300px;
-		height: 300px;
+		bottom: 10%;
+		right: 15%;
 		background: var(--theme-accent);
-		top: 30%;
-		right: 10%;
-		animation-delay: -7s;
+		opacity: 0.12;
+		animation: heroFloat 15s ease-in-out infinite reverse;
 	}
 
-	.orb-3 {
-		width: 250px;
-		height: 250px;
-		background: #06b6d4;
-		bottom: -5%;
-		left: 40%;
-		animation-delay: -14s;
-	}
-
-	@keyframes float {
+	@keyframes heroFloat {
 		0%, 100% {
 			transform: translate(0, 0) scale(1);
 		}
-		25% {
-			transform: translate(30px, -30px) scale(1.05);
+		33% {
+			transform: translate(30px, -20px) scale(1.05);
 		}
-		50% {
+		66% {
 			transform: translate(-20px, 20px) scale(0.95);
-		}
-		75% {
-			transform: translate(-30px, -20px) scale(1.02);
-		}
-	}
-
-	/* Floating Particles */
-	.particle {
-		position: absolute;
-		width: 4px;
-		height: 4px;
-		border-radius: 50%;
-		background: var(--theme-primary);
-		opacity: 0.4;
-		animation: floatParticle 15s ease-in-out infinite;
-	}
-
-	.particle-1 {
-		top: 20%;
-		left: 10%;
-		animation-delay: 0s;
-	}
-
-	.particle-2 {
-		top: 60%;
-		left: 15%;
-		width: 3px;
-		height: 3px;
-		background: var(--theme-accent);
-		animation-delay: -3s;
-	}
-
-	.particle-3 {
-		top: 30%;
-		right: 20%;
-		width: 5px;
-		height: 5px;
-		animation-delay: -6s;
-	}
-
-	.particle-4 {
-		top: 70%;
-		right: 10%;
-		width: 3px;
-		height: 3px;
-		background: #06b6d4;
-		animation-delay: -9s;
-	}
-
-	.particle-5 {
-		top: 15%;
-		right: 30%;
-		width: 2px;
-		height: 2px;
-		animation-delay: -12s;
-	}
-
-	.particle-6 {
-		bottom: 25%;
-		left: 25%;
-		width: 4px;
-		height: 4px;
-		background: var(--theme-accent);
-		animation-delay: -5s;
-	}
-
-	@keyframes floatParticle {
-		0%, 100% {
-			transform: translate(0, 0);
-			opacity: 0.4;
-		}
-		25% {
-			transform: translate(20px, -30px);
-			opacity: 0.7;
-		}
-		50% {
-			transform: translate(-15px, -50px);
-			opacity: 0.3;
-		}
-		75% {
-			transform: translate(25px, -20px);
-			opacity: 0.6;
 		}
 	}
 
@@ -396,7 +367,115 @@
 		position: relative;
 		z-index: 1;
 		text-align: center;
-		padding: 2rem;
+		max-width: 800px;
+	}
+
+	.hero-intro {
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-greeting {
+		display: block;
+		font-size: clamp(1.25rem, 3vw, 1.75rem);
+		color: var(--theme-muted-foreground);
+		margin-bottom: 0.25rem;
+	}
+
+	.hero-name {
+		font-size: clamp(2.75rem, 8vw, 4.5rem);
+		font-weight: 700;
+		color: var(--theme-foreground);
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		position: relative;
+		display: inline-block;
+	}
+
+	.hero-name::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(90deg, var(--theme-primary), var(--theme-accent));
+		border-radius: 2px;
+		transform: scaleX(0);
+		transform-origin: left;
+		animation: underlineGrow 0.8s ease 0.6s forwards;
+	}
+
+	@keyframes underlineGrow {
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	.hero-title-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.hero-title-item {
+		font-size: 1.125rem;
+		color: var(--theme-muted-foreground);
+		font-weight: 500;
+		transition: color 0.2s ease;
+	}
+
+	.hero-title-item:hover {
+		color: var(--theme-primary);
+	}
+
+	.hero-title-divider {
+		width: 6px;
+		height: 6px;
+		background: var(--theme-primary);
+		border-radius: 50%;
+		opacity: 0.6;
+	}
+
+	.hero-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.hero-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.625rem;
+		padding: 0.625rem 1rem;
+		background: color-mix(in srgb, var(--theme-card) 80%, transparent);
+		border: 1px solid var(--theme-border);
+		border-radius: 0.5rem;
+		color: var(--theme-muted-foreground);
+		font-size: 0.875rem;
+		transition: all 0.2s ease;
+	}
+
+	.hero-link:hover {
+		border-color: var(--theme-primary);
+		color: var(--theme-primary);
+		transform: translateY(-2px);
+	}
+
+	.hero-link-icon {
+		width: 1.125rem;
+		height: 1.125rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero-link-icon svg {
+		width: 100%;
+		height: 100%;
 	}
 
 	/* Scroll Indicator */
@@ -406,40 +485,149 @@
 		left: 50%;
 		transform: translateX(-50%);
 		opacity: 0;
-		animation: fadeIn 1s ease 1s forwards;
+		animation: fadeIn 1s ease 1.2s forwards;
 	}
 
-	.scroll-line {
-		width: 1px;
+	.scroll-mouse {
+		width: 24px;
 		height: 40px;
-		background: linear-gradient(to bottom, var(--theme-primary), transparent);
+		border: 2px solid var(--theme-muted-foreground);
+		border-radius: 12px;
 		position: relative;
-		overflow: hidden;
+		opacity: 0.5;
 	}
 
-	.scroll-line::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 10px;
+	.scroll-wheel {
+		width: 4px;
+		height: 8px;
 		background: var(--theme-primary);
-		animation: scrollDown 1.5s ease-in-out infinite;
+		border-radius: 2px;
+		position: absolute;
+		top: 8px;
+		left: 50%;
+		transform: translateX(-50%);
+		animation: scrollWheel 1.5s ease-in-out infinite;
 	}
 
-	@keyframes scrollDown {
-		0% {
-			transform: translateY(-10px);
-			opacity: 0;
+	@keyframes scrollWheel {
+		0%, 100% {
+			opacity: 1;
+			transform: translateX(-50%) translateY(0);
 		}
 		50% {
+			opacity: 0.3;
+			transform: translateX(-50%) translateY(12px);
+		}
+	}
+
+	:global(.animate-fade-up-delay-3) {
+		animation: fadeUp 0.8s ease 0.6s forwards;
+		opacity: 0;
+	}
+
+	/* Stats Section */
+	.stats-section {
+		position: relative;
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.stats-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.stat-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.5rem;
+		background: color-mix(in srgb, var(--theme-card) 60%, transparent);
+		border: 1px solid var(--theme-border);
+		border-radius: 1rem;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(20px);
+		animation: statSlideIn 0.6s ease forwards;
+		animation-delay: var(--delay);
+		transition: all 0.3s ease;
+	}
+
+	.stat-card:hover {
+		border-color: var(--theme-primary);
+		transform: translateY(-4px);
+	}
+
+	.stat-card:hover .stat-glow {
+		opacity: 1;
+	}
+
+	.stat-card:hover .stat-icon {
+		transform: scale(1.1);
+		color: var(--theme-primary);
+	}
+
+	@keyframes statSlideIn {
+		to {
 			opacity: 1;
+			transform: translateY(0);
 		}
-		100% {
-			transform: translateY(40px);
-			opacity: 0;
-		}
+	}
+
+	.stat-icon {
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--theme-muted-foreground);
+		transition: all 0.3s ease;
+	}
+
+	.stat-icon svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.stat-content {
+		text-align: center;
+	}
+
+	.stat-value {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--theme-foreground);
+		line-height: 1;
+		margin-bottom: 0.5rem;
+		background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.stat-label {
+		font-size: 0.75rem;
+		color: var(--theme-muted-foreground);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.stat-glow {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			circle at center,
+			color-mix(in srgb, var(--theme-primary) 10%, transparent) 0%,
+			transparent 70%
+		);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		pointer-events: none;
 	}
 
 	/* Collapsible Game Section */
@@ -573,22 +761,70 @@
 
 	@media (max-width: 768px) {
 		.hero {
-			min-height: 50vh;
+			min-height: 75vh;
+			padding: 5rem 1rem 3rem;
 		}
 
-		.orb-1 {
+		.hero-glow-1 {
+			width: 300px;
+			height: 300px;
+			top: 5%;
+			left: 10%;
+		}
+
+		.hero-glow-2 {
 			width: 250px;
 			height: 250px;
+			bottom: 5%;
+			right: 5%;
 		}
 
-		.orb-2 {
-			width: 200px;
-			height: 200px;
+		.hero-greeting {
+			font-size: 1.125rem;
 		}
 
-		.orb-3 {
-			width: 150px;
-			height: 150px;
+		.hero-title-wrapper {
+			gap: 0.5rem;
+		}
+
+		.hero-title-item {
+			font-size: 0.9375rem;
+		}
+
+		.hero-title-divider {
+			width: 4px;
+			height: 4px;
+		}
+
+		.hero-links {
+			flex-direction: column;
+			gap: 0.625rem;
+		}
+
+		.hero-link {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.scroll-indicator {
+			display: none;
+		}
+
+		.stat-card {
+			padding: 1.25rem;
+		}
+
+		.stat-icon {
+			width: 2rem;
+			height: 2rem;
+		}
+
+		.stat-value {
+			font-size: 1.5rem;
+		}
+
+		.stat-label {
+			font-size: 0.6875rem;
 		}
 
 		.main-container {
@@ -596,9 +832,199 @@
 		}
 	}
 
-	@media (max-width: 480px) {
-		.hero-content h1 {
-			font-size: 2rem;
+	/* About Section */
+	.about-container {
+		position: relative;
+		padding-inline-start: 1.5rem;
+		border-inline-start: 2px solid var(--theme-primary);
+	}
+
+	.about-text {
+		font-size: 1.0625rem;
+		line-height: 1.9;
+		color: var(--theme-muted-foreground);
+	}
+
+	@media (max-width: 768px) {
+		.about-container {
+			padding-inline-start: 1rem;
+		}
+
+		.about-text {
+			font-size: 0.9375rem;
+			line-height: 1.7;
+		}
+	}
+
+	/* Enhanced Highlights */
+	.highlights-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.highlight-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		border-radius: 0.5rem;
+		background: color-mix(in srgb, var(--theme-primary) 3%, transparent);
+		border: 1px solid transparent;
+		position: relative;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(10px);
+		animation: highlightSlideIn 0.5s ease forwards;
+		animation-delay: var(--delay);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.highlight-item::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 3px;
+		height: 100%;
+		background: linear-gradient(to bottom, var(--theme-primary), var(--theme-accent));
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.highlight-ltr::before {
+		left: 0;
+		border-radius: 0.5rem 0 0 0.5rem;
+	}
+
+	.highlight-rtl::before {
+		right: 0;
+		border-radius: 0 0.5rem 0.5rem 0;
+	}
+
+	.highlight-ltr {
+		padding-left: 1.25rem;
+	}
+
+	.highlight-rtl {
+		padding-right: 1.25rem;
+	}
+
+	.highlight-item:hover {
+		background: color-mix(in srgb, var(--theme-primary) 8%, transparent);
+		border-color: color-mix(in srgb, var(--theme-primary) 20%, transparent);
+		transform: translateX(4px);
+	}
+
+	.highlight-rtl:hover {
+		transform: translateX(-4px);
+	}
+
+	.highlight-item:hover::before {
+		opacity: 1;
+	}
+
+	.highlight-icon {
+		flex-shrink: 0;
+		width: 1.25rem;
+		height: 1.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--theme-primary);
+		opacity: 0.7;
+		transition: all 0.3s ease;
+	}
+
+	.highlight-icon svg {
+		width: 100%;
+		height: 100%;
+		stroke-dasharray: 50;
+		stroke-dashoffset: 50;
+		animation: checkDraw 0.6s ease forwards;
+		animation-delay: calc(var(--delay) + 0.3s);
+	}
+
+	.highlight-item:hover .highlight-icon {
+		opacity: 1;
+		transform: scale(1.1);
+		color: var(--theme-accent);
+	}
+
+	.highlight-text {
+		font-size: 0.875rem;
+		color: var(--theme-muted-foreground);
+		line-height: 1.6;
+		transition: color 0.3s ease;
+	}
+
+	.highlight-item:hover .highlight-text {
+		color: var(--theme-foreground);
+	}
+
+	@keyframes highlightSlideIn {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes checkDraw {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	/* Mobile adjustments for highlights */
+	@media (max-width: 768px) {
+		.highlight-item {
+			padding: 0.625rem 0.875rem;
+			gap: 0.625rem;
+		}
+
+		.highlight-ltr {
+			padding-left: 1rem;
+		}
+
+		.highlight-rtl {
+			padding-right: 1rem;
+		}
+
+		.highlight-icon {
+			width: 1rem;
+			height: 1rem;
+			margin-top: 0.125rem;
+		}
+
+		.highlight-text {
+			font-size: 0.8125rem;
+		}
+
+		.highlight-item:hover {
+			transform: translateX(2px);
+		}
+
+		.highlight-rtl:hover {
+			transform: translateX(-2px);
+		}
+	}
+
+	/* Touch-friendly hover states for mobile */
+	@media (hover: none) {
+		.highlight-item {
+			background: color-mix(in srgb, var(--theme-primary) 5%, transparent);
+			border-color: color-mix(in srgb, var(--theme-primary) 10%, transparent);
+		}
+
+		.highlight-item::before {
+			opacity: 0.5;
+		}
+
+		.highlight-item:hover {
+			transform: none;
+		}
+
+		.highlight-rtl:hover {
+			transform: none;
 		}
 	}
 </style>
