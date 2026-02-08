@@ -671,7 +671,7 @@
 		border: none;
 		border-radius: 0.25rem;
 		color: var(--theme-muted-foreground);
-		font-family: 'First Time Writing!', 'Inter', sans-serif;
+		font-family: 'Inter', sans-serif;
 		font-size: 0.8rem;
 		cursor: pointer;
 		opacity: 0;
