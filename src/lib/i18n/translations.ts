@@ -20,10 +20,9 @@ export const translations = {
       experience: "سوابق کاری",
       skills: "مهارت‌ها",
     },
-    aboutText:
-      "سلام! من پوریام 😊\n\n" +
-      "بیش از ۵ سال داره می‌گذره که وب و وب۳ می‌سازم — از بک‌اندهای محکم و پرترافیک گرفته تا فرانت‌اندهای روان، اپ‌های دسکتاپی که سال‌هاست تو تولید هستن و پروژه‌های بلاکچینی روی TRON، Polygon و TON. چیزایی مثل پلتفرم لانچ توکن، درگاه پرداخت چندزنجیره‌ای، مارکت‌پلیس NFT و تجربه‌های تعاملی سه‌بعدی مثل explorer محصول یا رابط‌های immersive.\n\n" +
-      "اگه پروژه جالبی داری — چه وب۳، سه‌بعدی، فول‌استک یا هر چیز خلاقانه — خوشحال می‌شم گپ بزنیم و ببینیم چی می‌تونیم بسازیم 🚀",
+    aboutText: `سلام، من پوریام.
+حدود پنج ساله که به عنوان Full-Stack Developer فعالیت می‌کنم و تمرکز اصلی‌ام روی پروژه‌های Web3 بوده؛ از طراحی و پیاده‌سازی سیستم‌های multi-chain payment گرفته تا token launch، NFT و توسعه رابط‌های کاربری interactive و سه‌بعدی.
+به ساخت محصولاتی علاقه دارم که علاوه بر عملکرد فنی قوی، تجربه کاربری دقیق و قابل لمس داشته باشند. اگر روی پروژه یا ایده‌ای کار می‌کنید و فکر می‌کنید می‌تونم مفید باشم، خوشحال می‌شم بیشتر درباره‌ش صحبت کنیم.`,
     aboutFeatures: [
       {
         icon: "code",
@@ -178,10 +177,10 @@ export const translations = {
       experience: "Experience",
       skills: "Skills",
     },
-    aboutText:
-      "Hey, I'm Pooria 😄\n\n" +
-      "For over 5 years I've been building web + Web3 stuff — solid high-traffic backends, smooth frontends, long-running desktop apps, and blockchain projects on TRON, Polygon and TON. Things like token launch platforms, multi-chain payment gateways, NFT marketplaces, and interactive 3D experiences like product explorers or immersive interfaces.\n\n" +
-      "Got something interesting going on — Web3, interactive 3D, full-stack or just something creative? Hit me up, I'd love to chat and see what we can build together 🚀",
+  aboutText:
+  "Hi, I'm Pooria.\n\n" +
+  "I'm a Full-Stack Developer with over five years of experience, primarily focused on Web3 projects. My work includes designing and building multi-chain payment systems, token launch platforms, NFT infrastructure, and interactive 3D web experiences.\n\n" +
+  "I care about building products that combine strong technical foundations with thoughtful user experience. If you're working on a project or idea and think I could contribute, I'd be glad to hear more about it.",
     aboutFeatures: [
       {
         icon: "code",
@@ -199,7 +198,7 @@ export const translations = {
         icon: "cube",
         title: "Interactive 3D Web",
         description:
-          "Fun, lively experiences with Three.js & WebGL — product explorers, immersive interfaces, you name it",
+          "Interactive and immersive experiences built with Three.js and WebGL — including product explorers and advanced web interfaces",
       },
       {
         icon: "server",
@@ -313,7 +312,7 @@ export const translations = {
       difficulties: { easy: "Easy", normal: "Normal", hard: "Hard" },
     },
     footer:
-      "Open to freelance, contract & full-time opportunities — especially Web3, interactive web and creative full-stack projects",
+      "Available for freelance, contract, and full-time collaborations — especially in Web3, interactive web, and creative full-stack projects",
     switchLang: "فا",
   },
 } as const;
