@@ -19,13 +19,26 @@ export function createTorusEngine(canvas: HTMLCanvasElement): TorusEngine {
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  const geometry = new THREE.TorusKnotGeometry(0.9, 0.28, 200, 32);
-  const material = new THREE.MeshBasicMaterial({
+  const geometry = new THREE.TorusKnotGeometry(0.9, 0.28, 256, 32);
+  const material = new THREE.MeshStandardMaterial({
     color: 0x1e3a5f,
-    wireframe: true,
+    roughness: 0.42,
+    metalness: 0.05,
   });
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
+
+  // Lighting — soft ambient + warm key + cool rim for sculpted-but-readable form
+  const ambient = new THREE.AmbientLight(0xfaf6ee, 0.55);
+  scene.add(ambient);
+
+  const keyLight = new THREE.DirectionalLight(0xffe8c4, 1.1);
+  keyLight.position.set(2.2, 2.6, 2.2);
+  scene.add(keyLight);
+
+  const rimLight = new THREE.DirectionalLight(0x7aa6d8, 0.65);
+  rimLight.position.set(-2.4, -1.0, -1.6);
+  scene.add(rimLight);
 
   let animationId = 0;
   let running = false;

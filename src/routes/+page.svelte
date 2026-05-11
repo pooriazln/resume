@@ -97,11 +97,12 @@
   }
 
   .hero-name {
-    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.05;
     margin-bottom: 1rem;
+    white-space: nowrap;
   }
 
   .hero-tagline {
