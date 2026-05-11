@@ -21,6 +21,9 @@
 <main class="page" dir={$dir}>
   <!-- 1. Hero -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <TorusWidget />
+    </div>
     <div class="hero-text">
       <h1 class="hero-name">{$t.name}</h1>
       <p class="hero-tagline">{$t.tagline}</p>
@@ -32,9 +35,6 @@
           GitHub
         </a>
       </div>
-    </div>
-    <div class="hero-visual">
-      <TorusWidget />
     </div>
   </section>
 
@@ -89,11 +89,26 @@
 
   /* Hero */
   .hero {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 3rem;
+    position: relative;
+    display: flex;
     align-items: center;
+    min-height: 60vh;
     margin-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: -10% -8%;
+    z-index: 0;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
 
   .hero-name {
@@ -117,11 +132,6 @@
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
-  }
-
-  .hero-visual {
-    width: 280px;
-    aspect-ratio: 1 / 1;
   }
 
   /* Section blocks */
@@ -251,12 +261,7 @@
   /* Mobile */
   @media (max-width: 640px) {
     .hero {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .hero-visual {
-      width: 200px;
-      justify-self: start;
+      min-height: 50vh;
     }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .btn { width: 100%; }

@@ -64,13 +64,13 @@ export function createTorusEngine(canvas: HTMLCanvasElement): TorusEngine {
     const scale = 1 + Math.sin((t * Math.PI * 2) / 3) * 0.025;
     mesh.scale.setScalar(scale);
 
-    // base rotation
-    mesh.rotation.y = t * 0.1;
-    mesh.rotation.x = t * 0.05;
+    // base rotation — slow, ambient
+    mesh.rotation.y = t * 0.04;
+    mesh.rotation.x = t * 0.02;
 
-    // mouse parallax — lerp toward target tilt (~±8° = ~0.14 rad)
-    const targetTiltX = pointerY * 0.14;
-    const targetTiltY = pointerX * 0.14;
+    // mouse parallax — gentle (~±3.5° = ~0.06 rad)
+    const targetTiltX = pointerY * 0.06;
+    const targetTiltY = pointerX * 0.06;
     currentTiltX += (targetTiltX - currentTiltX) * 0.08;
     currentTiltY += (targetTiltY - currentTiltY) * 0.08;
     mesh.rotation.x += currentTiltX;
