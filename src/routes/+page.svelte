@@ -1,6 +1,6 @@
 <script lang="ts">
   import { t, dir, toggleLanguage } from '$lib/i18n';
-  import { TorusWidget } from '$lib/components/torus-widget';
+  import { Particles } from '$lib/components/particles';
 </script>
 
 <!-- Top-right language toggle -->
@@ -22,7 +22,7 @@
   <!-- 1. Hero -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <TorusWidget />
+      <Particles />
     </div>
     <div class="hero-text">
       <h1 class="hero-name">{$t.name}</h1>
@@ -99,9 +99,8 @@
 
   .hero-bg {
     position: absolute;
-    inset: -10% -8%;
+    inset: 0;
     z-index: 0;
-    opacity: 0.18;
     pointer-events: none;
   }
 
