@@ -1,6 +1,6 @@
 <script lang="ts">
   import { t, dir, toggleLanguage } from '$lib/i18n';
-  // 3D widget gets imported in Task 9
+  import { TorusWidget } from '$lib/components/torus-widget';
 </script>
 
 <!-- Top-right language toggle -->
@@ -34,8 +34,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <!-- Torus widget mounts here in Task 9 -->
-      <div class="hero-visual-placeholder" aria-hidden="true"></div>
+      <TorusWidget />
     </div>
   </section>
 
@@ -122,13 +121,6 @@
   .hero-visual {
     width: 280px;
     aspect-ratio: 1 / 1;
-  }
-
-  .hero-visual-placeholder {
-    width: 100%;
-    height: 100%;
-    border: 1px dashed var(--theme-border);
-    border-radius: 50%;
   }
 
   /* Section blocks */
