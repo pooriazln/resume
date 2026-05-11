@@ -40,7 +40,7 @@
 		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Define theme CSS variables - milky bone + ink blue by default */
+/* Define theme CSS variables - milky bone + burnt orange by default */
 :root {
 	--theme-background: #FAF6EE;
 	--theme-foreground: #1C1A16;
@@ -48,19 +48,19 @@
 	--theme-card-foreground: #1C1A16;
 	--theme-popover: #FAF6EE;
 	--theme-popover-foreground: #1C1A16;
-	--theme-primary: #1E3A5F;
+	--theme-primary: #C2410C;
 	--theme-primary-foreground: #FAF6EE;
 	--theme-secondary: #F2EDE2;
 	--theme-secondary-foreground: #1C1A16;
 	--theme-muted: #F2EDE2;
 	--theme-muted-foreground: #6B6358;
-	--theme-accent: #1E3A5F;
+	--theme-accent: #C2410C;
 	--theme-accent-foreground: #FAF6EE;
 	--theme-destructive: #b3261e;
 	--theme-destructive-foreground: #FAF6EE;
 	--theme-border: #E5DECF;
 	--theme-input: #E5DECF;
-	--theme-ring: #1E3A5F;
+	--theme-ring: #C2410C;
 	--orb-opacity: 0.25;
 }
 
