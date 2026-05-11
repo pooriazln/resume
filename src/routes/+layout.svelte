@@ -8,8 +8,8 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>{$t.name} - {$t.title}</title>
-	<meta name="description" content={$t.aboutText} />
+	<title>{$t.name} — {$t.tagline}</title>
+	<meta name="description" content={$t.tagline} />
 </svelte:head>
 
 <div dir={$dir} lang={$currentLang} class="min-h-screen">
