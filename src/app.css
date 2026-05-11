@@ -40,51 +40,51 @@
 		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Define theme CSS variables - dark theme by default */
+/* Define theme CSS variables - milky bone + ink blue by default */
 :root {
-	--theme-background: #0a0a0f;
-	--theme-foreground: #f0f0f5;
-	--theme-card: #16161f;
-	--theme-card-foreground: #f0f0f5;
-	--theme-popover: #16161f;
-	--theme-popover-foreground: #f0f0f5;
-	--theme-primary: #38bdf8;
-	--theme-primary-foreground: #0a0a0f;
-	--theme-secondary: #12121a;
-	--theme-secondary-foreground: #f0f0f5;
-	--theme-muted: #12121a;
-	--theme-muted-foreground: #a0a0b0;
-	--theme-accent: #818cf8;
-	--theme-accent-foreground: #f0f0f5;
-	--theme-destructive: #ef4444;
-	--theme-destructive-foreground: #f0f0f5;
-	--theme-border: #1e1e2a;
-	--theme-input: #1e1e2a;
-	--theme-ring: #38bdf8;
-	--orb-opacity: 0.5;
+	--theme-background: #FAF6EE;
+	--theme-foreground: #1C1A16;
+	--theme-card: #F2EDE2;
+	--theme-card-foreground: #1C1A16;
+	--theme-popover: #FAF6EE;
+	--theme-popover-foreground: #1C1A16;
+	--theme-primary: #1E3A5F;
+	--theme-primary-foreground: #FAF6EE;
+	--theme-secondary: #F2EDE2;
+	--theme-secondary-foreground: #1C1A16;
+	--theme-muted: #F2EDE2;
+	--theme-muted-foreground: #6B6358;
+	--theme-accent: #1E3A5F;
+	--theme-accent-foreground: #FAF6EE;
+	--theme-destructive: #b3261e;
+	--theme-destructive-foreground: #FAF6EE;
+	--theme-border: #E5DECF;
+	--theme-input: #E5DECF;
+	--theme-ring: #1E3A5F;
+	--orb-opacity: 0.25;
 }
 
 /* Light theme overrides */
 [data-theme="light"] {
-	--theme-background: #ffffff;
-	--theme-foreground: #0f172a;
-	--theme-card: #f8fafc;
-	--theme-card-foreground: #0f172a;
-	--theme-popover: #ffffff;
-	--theme-popover-foreground: #0f172a;
-	--theme-primary: #0284c7;
-	--theme-primary-foreground: #ffffff;
-	--theme-secondary: #e2e8f0;
-	--theme-secondary-foreground: #1e293b;
-	--theme-muted: #f1f5f9;
-	--theme-muted-foreground: #475569;
-	--theme-accent: #4f46e5;
-	--theme-accent-foreground: #ffffff;
-	--theme-destructive: #dc2626;
-	--theme-destructive-foreground: #ffffff;
-	--theme-border: #cbd5e1;
-	--theme-input: #cbd5e1;
-	--theme-ring: #0284c7;
+	--theme-background: #FAF6EE;
+	--theme-foreground: #1C1A16;
+	--theme-card: #F2EDE2;
+	--theme-card-foreground: #1C1A16;
+	--theme-popover: #FAF6EE;
+	--theme-popover-foreground: #1C1A16;
+	--theme-primary: #1E3A5F;
+	--theme-primary-foreground: #FAF6EE;
+	--theme-secondary: #F2EDE2;
+	--theme-secondary-foreground: #1C1A16;
+	--theme-muted: #F2EDE2;
+	--theme-muted-foreground: #6B6358;
+	--theme-accent: #1E3A5F;
+	--theme-accent-foreground: #FAF6EE;
+	--theme-destructive: #b3261e;
+	--theme-destructive-foreground: #FAF6EE;
+	--theme-border: #E5DECF;
+	--theme-input: #E5DECF;
+	--theme-ring: #1E3A5F;
 	--orb-opacity: 0.25;
 }
 
