@@ -64,30 +64,6 @@
 	--orb-opacity: 0.25;
 }
 
-/* Light theme overrides */
-[data-theme="light"] {
-	--theme-background: #FAF6EE;
-	--theme-foreground: #1C1A16;
-	--theme-card: #F2EDE2;
-	--theme-card-foreground: #1C1A16;
-	--theme-popover: #FAF6EE;
-	--theme-popover-foreground: #1C1A16;
-	--theme-primary: #1E3A5F;
-	--theme-primary-foreground: #FAF6EE;
-	--theme-secondary: #F2EDE2;
-	--theme-secondary-foreground: #1C1A16;
-	--theme-muted: #F2EDE2;
-	--theme-muted-foreground: #6B6358;
-	--theme-accent: #1E3A5F;
-	--theme-accent-foreground: #FAF6EE;
-	--theme-destructive: #b3261e;
-	--theme-destructive-foreground: #FAF6EE;
-	--theme-border: #E5DECF;
-	--theme-input: #E5DECF;
-	--theme-ring: #1E3A5F;
-	--orb-opacity: 0.25;
-}
-
 /* Tailwind theme - reference the CSS variables */
 @theme inline {
 	--color-background: var(--theme-background);
@@ -131,15 +107,4 @@ body {
 ::selection {
 	background: var(--theme-primary);
 	color: var(--theme-background);
-}
-
-/* View Transitions for theme toggle */
-::view-transition-old(root),
-::view-transition-new(root) {
-	animation: none;
-	mix-blend-mode: normal;
-}
-
-::view-transition-image-pair(root) {
-	isolation: auto;
 }
