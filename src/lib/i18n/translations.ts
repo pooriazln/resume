@@ -3,7 +3,7 @@ export type Language = "fa" | "en";
 export const translations = {
   fa: {
     name: "پوریا ذوالوریان",
-    tagline: "توسعه‌دهنده فول‌استک و وب۳. کارهای سخت رو تحویل می‌دم.",
+    tagline: "توسعه‌دهنده فول‌استک و Web3. کارهای سخت رو تحویل می‌دم.",
     location: "شیراز، ایران",
     sections: {
       whatIDo: "چه کار می‌کنم",
@@ -11,12 +11,12 @@ export const translations = {
       tech: "تکنولوژی‌ها",
     },
     whatIDo: [
-      "وب۳ — درگاه پرداخت چندزنجیره‌ای، عرضه توکن، NFT. سالیدیتی و تَکت. بیش از ۵ سال تجربه.",
+      "Web3 — درگاه پرداخت چندزنجیره‌ای، عرضه توکن، NFT. سالیدیتی و تَکت. بیش از ۵ سال تجربه.",
       "فول‌استک — اپلیکیشن‌های production با React / Next / NestJS که زیر بار واقعی دووم می‌آرن.",
       "وب سه‌بعدی — تجربه‌های Three.js و WebGL برای محصولات تعاملی و رابط‌های immersive.",
     ],
     selectedWork: [
-      "درگاه پرداخت کریپتو چندزنجیره‌ای با پشتیبانی از بیش از ۱۴ بلاکچین برای یک کلاینت فین‌تک (تحت NDA). مسئول طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
+      "درگاه پرداخت کریپتو چندزنجیره‌ای با پشتیبانی از بیش از ۱۴ بلاکچین برای یک کلاینت پرداخت. مسئول طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
       "پلتفرم کامل عرضه توکن روی TON با Tact — فروش خصوصی، مینت و mining. عملیاتی، با حجم تراکنش واقعی.",
       "بازطراحی نسخه دو مارکت‌پلیس NFT چندفروشندگی روی Polygon — منطق پاداش، قراردادهای هوشمند، end-to-end.",
     ],
@@ -26,7 +26,7 @@ export const translations = {
       "TON", "Polygon", "PostgreSQL", "Docker",
     ],
     contact: {
-      line: "آماده همکاری در پروژه‌های فریلنس، قراردادی و تمام‌وقت — به‌خصوص وب۳، وب تعاملی و فول‌استک خلاقانه.",
+      line: "آماده همکاری در پروژه‌های فریلنس، قراردادی و تمام‌وقت — به‌خصوص Web3، وب تعاملی و فول‌استک خلاقانه.",
       emailLabel: "تماس از طریق ایمیل",
     },
     switchLang: "EN",
@@ -46,7 +46,7 @@ export const translations = {
       "Interactive 3D — Three.js / WebGL for product explorers and immersive interfaces.",
     ],
     selectedWork: [
-      "Designed a multi-chain crypto payment gateway supporting 14+ blockchains for a fintech client (under NDA). Owned the chain abstraction, fee logic, and confirmation pipeline.",
+      "Designed a multi-chain crypto payment gateway supporting 14+ blockchains for a payments client. Owned the chain abstraction, fee logic, and confirmation pipeline.",
       "Built a full token launch platform on TON in Tact — private sale, minting, mining mechanics. Live, processed real volume.",
       "Led the v2 relaunch of a multi-vendor NFT marketplace on Polygon — reward logic, smart contracts, end-to-end.",
     ],
