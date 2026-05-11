@@ -3,7 +3,6 @@
 	import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '$lib/components/ui/card';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
-	import { ThemeToggle } from '$lib/components/ui/theme-toggle';
 	import { t, dir, toggleLanguage, currentLang } from '$lib/i18n';
 	import { SnakeGame } from '$lib/components/snake-game';
 
@@ -20,9 +19,6 @@
 	class:right-4={$dir === 'ltr'}
 	class:left-4={$dir === 'rtl'}
 >
-	<!-- Theme Toggle -->
-	<ThemeToggle />
-
 	<!-- Language Switcher -->
 	<button
 		onclick={toggleLanguage}
