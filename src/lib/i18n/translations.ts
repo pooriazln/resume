@@ -2,7 +2,7 @@ export type Language = "fa" | "en";
 
 export const translations = {
   fa: {
-    name: "پوریا ذوالوریان",
+    name: "پوریا ذوالنوریان",
     tagline: "توسعه‌دهنده فول‌استک و Web3. پروژه‌های پیچیده، تخصص منه.",
     location: "شیراز، ایران",
     sections: {
