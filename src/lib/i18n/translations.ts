@@ -12,8 +12,8 @@ export const translations = {
     },
     whatIDo: [
       "Web3 — درگاه پرداخت multi-chain، Token Launch، NFT. Solidity و Tact. بیش از ۵ سال تجربه.",
-      "Full-Stack — اپلیکیشن‌هایی برای production با React / Next / NestJS که زیر بار واقعی دووم می‌آرن.",
-      "وب سه‌بعدی — تجربه‌های Three.js و WebGL برای محصولات تعاملی و رابط‌های جذاب.",
+      "Full-Stack — معماری end-to-end با React / Next / NestJS.",
+      "وب سه‌بعدی — Three.js و WebGL برای محصولات تعاملی و رابط‌های 3D.",
     ],
     selectedWork: [
       "طراحی یک درگاه پرداخت multi-chain روی ۱۴+ blockchain برای یک کلاینت در حوزه پرداخت — abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
@@ -42,8 +42,8 @@ export const translations = {
     },
     whatIDo: [
       "Web3 — multi-chain payments, token launches, NFTs. Solidity, Tact. 5+ years.",
-      "Full-stack — production apps with React / Next / NestJS that survive real load.",
-      "Interactive 3D — Three.js / WebGL for product explorers and engaging web interfaces.",
+      "Full-stack — end-to-end architecture with React / Next / NestJS.",
+      "Interactive 3D — Three.js / WebGL for product explorers and 3D web interfaces.",
     ],
     selectedWork: [
       "Designed a multi-chain crypto payment gateway supporting 14+ blockchains for a payments client. Owned the chain abstraction, fee logic, and confirmation pipeline.",
