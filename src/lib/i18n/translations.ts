@@ -3,7 +3,7 @@ export type Language = "fa" | "en";
 export const translations = {
   fa: {
     name: "پوریا ذوالنوریان",
-    tagline: "توسعه‌دهنده فول‌استک و Web3. پروژه‌های پیچیده، تخصص منه.",
+    tagline: "توسعه‌دهنده Full-Stack و Web3. پروژه‌های پیچیده، تخصص منه.",
     location: "شیراز، ایران",
     sections: {
       whatIDo: "چه کار می‌کنم",
@@ -11,14 +11,14 @@ export const translations = {
       tech: "تکنولوژی‌ها",
     },
     whatIDo: [
-      "Web3 — درگاه پرداخت چندزنجیره‌ای، عرضه توکن، NFT. سالیدیتی و تَکت. بیش از ۵ سال تجربه.",
-      "فول‌استک — اپلیکیشن‌های production با React / Next / NestJS که زیر بار واقعی دووم می‌آرن.",
+      "Web3 — درگاه پرداخت multi-chain، عرضه توکن، NFT. Solidity و Tact. بیش از ۵ سال تجربه.",
+      "Full-Stack — اپلیکیشن‌های production با React / Next / NestJS که زیر بار واقعی دووم می‌آرن.",
       "وب سه‌بعدی — تجربه‌های Three.js و WebGL برای محصولات تعاملی و رابط‌های immersive.",
     ],
     selectedWork: [
-      "درگاه پرداخت کریپتو چندزنجیره‌ای با پشتیبانی از بیش از ۱۴ بلاکچین برای یک کلاینت پرداخت. مسئول طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
+      "درگاه پرداخت کریپتو multi-chain با پشتیبانی از بیش از ۱۴ بلاکچین برای یک کلاینت پرداخت. مسئول طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
       "پلتفرم کامل عرضه توکن روی TON با Tact — فروش خصوصی، مینت و mining. عملیاتی، با حجم تراکنش واقعی.",
-      "بازطراحی کامل یک مارکت‌پلیس NFT چندفروشنده روی Polygon (نسخه ۲) — منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
+      "بازطراحی کامل یک marketplace NFT multi-vendor روی Polygon (نسخه ۲) — منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
     ],
     tech: [
       "React", "Next.js", "Three.js", "Svelte",
@@ -26,7 +26,7 @@ export const translations = {
       "TON", "Polygon", "PostgreSQL", "Docker",
     ],
     contact: {
-      line: "آماده همکاری در پروژه‌های فریلنس، قراردادی و تمام‌وقت — به‌خصوص Web3، وب تعاملی و فول‌استک خلاقانه.",
+      line: "آماده همکاری در پروژه‌های فریلنس، قراردادی و تمام‌وقت — به‌خصوص Web3، وب تعاملی و Full-Stack خلاقانه.",
       emailLabel: "تماس از طریق ایمیل",
     },
     switchLang: "EN",
