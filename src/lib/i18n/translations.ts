@@ -7,7 +7,7 @@ export const translations = {
     location: "شیراز، ایران",
     sections: {
       whatIDo: "چه کار می‌کنم",
-      selectedWork: "نمونه کارها",
+      selectedWork: "پروژه‌های منتخب",
       tech: "تکنولوژی‌ها",
     },
     whatIDo: [
@@ -16,9 +16,9 @@ export const translations = {
       "وب سه‌بعدی — تجربه‌های Three.js و WebGL برای محصولات تعاملی و رابط‌های جذاب.",
     ],
     selectedWork: [
-      "درگاه پرداخت کریپتو multi-chain با پشتیبانی از بیش از ۱۴ بلاکچین برای یک کلاینت پرداخت. مسئول طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
-      "پلتفرم کامل Token Launch روی TON با Tact — فروش خصوصی، مینت و mining. عملیاتی، با حجم تراکنش واقعی.",
-      "بازطراحی کامل یک marketplace NFT multi-vendor روی Polygon (نسخه ۲) — منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
+      "یک درگاه پرداخت multi-chain روی ۱۴+ blockchain برای یک کلاینت در حوزه پرداخت ساختم. طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش با من بود.",
+      "یک پلتفرم Token Launch روی TON با Tact ساختم — فروش خصوصی، minting، mining. الان لایو هست و حجم واقعی تراکنش پردازش می‌کنه.",
+      "یک marketplace NFT multi-vendor روی Polygon (نسخه ۲) رو بازطراحی کردم. منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
     ],
     tech: [
       "React", "Next.js", "Three.js", "Svelte",
