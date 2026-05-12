@@ -18,7 +18,7 @@ export const translations = {
     selectedWork: [
       "یک درگاه پرداخت multi-chain روی ۱۴+ blockchain برای یک کلاینت در حوزه پرداخت ساختم. طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش با من بود.",
       "یک پلتفرم Token Launch روی TON با Tact ساختم — فروش خصوصی، minting، mining. الان لایو هست و حجم واقعی تراکنش پردازش می‌کنه.",
-      "یک marketplace NFT multi-vendor روی Polygon (نسخه ۲) رو بازطراحی کردم. منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
+      "یک marketplace NFT multi-vendor روی Polygon رو بازطراحی کردم. منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
     ],
     tech: [
       "React", "Next.js", "Three.js", "Svelte",
