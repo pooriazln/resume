@@ -11,13 +11,13 @@ export const translations = {
       tech: "تکنولوژی‌ها",
     },
     whatIDo: [
-      "Web3 — درگاه پرداخت multi-chain، عرضه توکن، NFT. Solidity و Tact. بیش از ۵ سال تجربه.",
+      "Web3 — درگاه پرداخت multi-chain، Token Launch، NFT. Solidity و Tact. بیش از ۵ سال تجربه.",
       "Full-Stack — اپلیکیشن‌های production با React / Next / NestJS که زیر بار واقعی دووم می‌آرن.",
       "وب سه‌بعدی — تجربه‌های Three.js و WebGL برای محصولات تعاملی و رابط‌های immersive.",
     ],
     selectedWork: [
       "درگاه پرداخت کریپتو multi-chain با پشتیبانی از بیش از ۱۴ بلاکچین برای یک کلاینت پرداخت. مسئول طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
-      "پلتفرم کامل عرضه توکن روی TON با Tact — فروش خصوصی، مینت و mining. عملیاتی، با حجم تراکنش واقعی.",
+      "پلتفرم کامل Token Launch روی TON با Tact — فروش خصوصی، مینت و mining. عملیاتی، با حجم تراکنش واقعی.",
       "بازطراحی کامل یک marketplace NFT multi-vendor روی Polygon (نسخه ۲) — منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
     ],
     tech: [

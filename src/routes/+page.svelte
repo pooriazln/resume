@@ -120,11 +120,12 @@
   }
 
   .hero-tagline {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     color: var(--theme-muted-foreground);
     line-height: 1.5;
-    margin-bottom: 2rem;
-    max-width: 28ch;
+    letter-spacing: -0.005em;
+    margin-bottom: 2.25rem;
+    max-width: 30ch;
   }
 
   .hero-actions {
@@ -142,9 +143,9 @@
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     color: var(--theme-muted-foreground);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .prose-list {
@@ -157,19 +158,19 @@
 
   .prose-list li {
     font-size: 1.0625rem;
-    line-height: 1.55;
+    line-height: 1.45;
     color: var(--theme-foreground);
   }
 
   .prose-stack {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .prose-stack p {
     font-size: 1rem;
-    line-height: 1.65;
+    line-height: 1.5;
     color: var(--theme-foreground);
     max-width: 64ch;
   }
@@ -187,6 +188,7 @@
     border: 1px solid var(--theme-border);
     border-radius: 9999px;
     font-size: 0.8125rem;
+    font-weight: 500;
     color: var(--theme-muted-foreground);
     background: transparent;
   }
@@ -252,7 +254,7 @@
 
   .contact p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--theme-muted-foreground);
     max-width: 56ch;
   }
