@@ -7,7 +7,7 @@ export const translations = {
     location: "شیراز، ایران",
     sections: {
       whatIDo: "چه کار می‌کنم",
-      selectedWork: "پروژه‌های منتخب",
+      selectedWork: "پروژه‌ها",
       tech: "تکنولوژی‌ها",
     },
     whatIDo: [
@@ -16,9 +16,9 @@ export const translations = {
       "وب سه‌بعدی — تجربه‌های Three.js و WebGL برای محصولات تعاملی و رابط‌های جذاب.",
     ],
     selectedWork: [
-      "یک درگاه پرداخت multi-chain روی ۱۴+ blockchain برای یک کلاینت در حوزه پرداخت ساختم. طراحی abstraction، منطق کارمزد و pipeline تأیید تراکنش با من بود.",
-      "یک پلتفرم Token Launch روی TON با Tact ساختم — فروش خصوصی، minting، mining. الان لایو هست و حجم واقعی تراکنش پردازش می‌کنه.",
-      "یک marketplace NFT multi-vendor روی Polygon رو بازطراحی کردم. منطق پاداش، قراردادهای هوشمند، از صفر تا صد.",
+      "طراحی یک درگاه پرداخت multi-chain روی ۱۴+ blockchain برای یک کلاینت در حوزه پرداخت — abstraction، منطق کارمزد و pipeline تأیید تراکنش.",
+      "ساخت یک پلتفرم Token Launch روی TON با Tact — فروش خصوصی، minting، mining.",
+      "بازطراحی کامل یک marketplace NFT multi-vendor روی Polygon — سیستم پاداش، قراردادهای هوشمند، از صفر تا صد.",
     ],
     tech: [
       "React", "Next.js", "Three.js", "Svelte",
@@ -47,7 +47,7 @@ export const translations = {
     ],
     selectedWork: [
       "Designed a multi-chain crypto payment gateway supporting 14+ blockchains for a payments client. Owned the chain abstraction, fee logic, and confirmation pipeline.",
-      "Built a full token launch platform on TON in Tact — private sale, minting, mining mechanics. Live, processed real volume.",
+      "Built a full token launch platform on TON in Tact — private sale, minting, mining mechanics.",
       "Led the v2 relaunch of a multi-vendor NFT marketplace on Polygon — reward logic, smart contracts, end-to-end.",
     ],
     tech: [
