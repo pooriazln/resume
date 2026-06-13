@@ -2,14 +2,18 @@
 
 ## Project Overview
 
-Personal resume/portfolio website for Pooria Zoloorian. Single-page SvelteKit app with bilingual support (Persian/English), dark/light theme, and an interactive Snake game.
+Personal resume/portfolio website for Pooria Zoloorian. Single-page SvelteKit app, **English
+only**, dark "burnt orange editorial" theme, with an animated ember canvas behind the hero,
+smooth scrolling, and reveal-on-scroll. Sections: Hero → About → What I build → Where I've
+worked → Contact.
 
 ## Tech Stack
 
-- **SvelteKit 2** with **Svelte 5** (runes: `$state`, `$props`, `$derived`, `{@render}`)
+- **SvelteKit 2** with **Svelte 5** (runes: `$state`, `$props`, `{@render}`)
 - **TypeScript** (strict mode)
-- **Tailwind CSS 4** via Vite plugin
-- **PixiJS 8** for Snake game rendering (WebGL, lazy-loaded)
+- **Tailwind CSS 4** via Vite plugin (`@theme` block in `app.css`)
+- Hero backdrop is a hand-written **Canvas 2D** particle engine — no PixiJS, no Three.js here
+- `lucide-svelte` icons; `cn()` (clsx + tailwind-merge) in `$lib/utils`
 - **Bun** as package manager (`bun.lock`)
 
 ## Commands
@@ -24,58 +28,54 @@ Personal resume/portfolio website for Pooria Zoloorian. Single-page SvelteKit ap
 ```
 src/
 ├── lib/
-│   ├── components/
-│   │   ├── ui/              # shadcn-svelte style components (card, badge, separator, theme-toggle)
-│   │   └── snake-game/      # PixiJS snake game (engine + Svelte wrapper)
-│   ├── i18n/                # Translations (fa/en) and language stores
-│   ├── theme/               # Dark/light theme with localStorage persistence
-│   └── utils/               # cn() utility (clsx + tailwind-merge)
+│   ├── assets/favicon.svg          # burnt-orange disc (brand mark)
+│   ├── components/particles/       # Particles.svelte + particles-engine.ts (ember canvas)
+│   ├── content.ts                  # ALL site copy (single English `content` object)
+│   └── utils/index.ts              # cn()
 ├── routes/
-│   ├── +layout.svelte       # Root layout (theme/i18n init)
-│   └── +page.svelte         # Main resume page
-├── app.css                  # Global styles, CSS variables, font imports
-└── app.html                 # HTML template
-static/                      # SVG illustrations, robots.txt
+│   ├── +layout.svelte              # imports app.css, sets <title>/meta, lang/dir
+│   └── +page.svelte                # the entire page: markup + scoped styles
+├── app.css                         # @font-face, theme CSS variables, @theme tokens
+└── app.html                        # HTML template (font preloads)
+static/fonts/                       # self-hosted variable WOFF2 (inter, fraunces)
 ```
 
-## Key Patterns
+## Content
 
-### Component Convention
-- Svelte 5 runes syntax: `let { class: className, children, ...restProps }: Props = $props()`
-- Props extend `HTMLAttributes<HTMLElement>` for native attribute pass-through
-- Class merging via `cn()` from `$lib/utils`
-- Render snippets: `{@render children?.()}`
-- Barrel exports via `index.ts` in each component directory
+- **All copy lives in `src/lib/content.ts`** as one `content` object, imported directly (no
+  i18n, no stores). The site is English only.
+- **Copy voice (important):** terse and factual. A project's *role* is carried by its short
+  `tag` (e.g. `Backend`, `Solo build`, `Frontend`); the `body` states **what the project is**,
+  in the third person — never "I built it myself" and no marketing adjectives ("feel alive",
+  "remarkable", "high-performance"). Prefer a real metric over an adjective.
 
-### i18n
-- Stores in `$lib/i18n`: `currentLang` (writable), `t` (derived translations), `dir` (derived `'rtl'|'ltr'`)
-- Default language: Persian (`fa`), toggle to English (`en`)
-- All content strings live in `src/lib/i18n/translations.ts`
-- RTL handled via `dir={$dir}` on root element and conditional positioning classes
+## Design System (dark only)
 
-### Theme
-- CSS custom properties (`--theme-primary`, `--theme-background`, etc.) defined in `app.css`
-- `data-theme` attribute on `<html>` toggled between `dark`/`light`
-- View Transitions API for animated theme switch with circular reveal
+- Palette in `app.css` `:root`: espresso `#16110D` bg, bone `#ECE3D2` text, burnt-orange
+  primary `#C2603A` (fills/rules), brighter accent `#D2774B` (small text/links), warm-grey
+  muted `#9A8F7E`, hairline border `#2C241B`. Favicon disc matches the primary.
+- Fonts (self-hosted variable WOFF2, no external requests): **Fraunces** serif for display
+  headings (`--font-serif`, Latin only), **Inter** for body (`--font-sans`). Near-sharp
+  corners (`--radius: 0.25rem`).
+- Hero name: first name solid bone, surname rendered with `-webkit-text-stroke` (faint fill
+  fallback).
 
-### Snake Game
-- `snake-engine.ts`: Pure logic — state, tick, collision, input queue, interpolation
-- `SnakeGame.svelte`: PixiJS renderer, lazy-loaded on first play click
-- Frame interpolation with wrap-around handling; conditional easing (cubic for turns, linear for straight)
-- Input queue (max 2) + force-early-tick for responsive controls
-- IntersectionObserver pauses rendering when off-screen
+## Motion
 
-## Styling
+- `scroll-behavior: smooth`. Hero loads with a one-shot staggered CSS animation; sections use
+  a `use:reveal` IntersectionObserver action (adds `.in`, then disconnects).
+- `particles-engine.ts`: warm ember field, additive `lighter` compositing, mouse repulsion;
+  `Particles.svelte` lazy-runs it and pauses via IntersectionObserver when off-screen.
+- All motion is gated behind `prefers-reduced-motion: reduce` (reveals show instantly, embers
+  render a single static frame).
 
-- Tailwind CSS 4 with inline `@theme` block in `app.css`
-- Dark theme (default): `#0a0a0f` bg, `#38bdf8` primary, `#818cf8` accent
-- Light theme: `#ffffff` bg, `#0284c7` primary, `#4f46e5` accent
-- Fonts: Inter (English), Vazirmatn (Persian)
+## Conventions
 
-## No Linting/Formatting Config
-
-No ESLint or Prettier configuration exists. Type checking is done via `svelte-check`.
+- Svelte 5 runes. Scoped `<style>` in `+page.svelte`; global rules via `:global(...)`.
+- Visible keyboard focus is provided globally (`a:focus-visible`, `button:focus-visible`).
+- No ESLint/Prettier. Type-check with `bun run check` before claiming done.
 
 ## Deployment
 
-Uses `@sveltejs/adapter-auto` — auto-detects deployment target (Vercel, Netlify, Node, etc.).
+`@sveltejs/adapter-auto` — auto-detects target (Vercel, Netlify, Node, …). The "could not
+detect environment" message on local `bun run build` is expected.
